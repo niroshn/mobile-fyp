@@ -1,0 +1,409 @@
+<ion-header class="hm_bg_color hm_header">
+  <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+  <div class="hm_search_header">
+    All Services
+  </div>
+  <button ion-button class="hm_header_btn hm_float_right hm_search_icon"></button>
+  <div class="hm_clear"></div>
+</ion-header>
+<ion-content class="hm_sign_bg">
+  <div class="hm_services">
+  <div class="hm_service_menu_bar">
+    <ion-scroll scrollX="true" style="height:45px;">
+    <ul>
+      <li [ngClass]="{'active' : slidertab == 0}" (click)="goToSlide(0)"><a class="beauty"><span class="active" [hidden]="slidertab != 0">.</span>Beauty</a></li>
+      <li [ngClass]="{'active' : slidertab == 1}" (click)="goToSlide(1)"><a class="health"><span class="active" [hidden]="slidertab != 1">.</span>Health</a></li>
+      <li  [ngClass]="{'active' : slidertab == 2}" (click)="goToSlide(2)"><a class="lesson"><span class="active" [hidden]="slidertab != 2">.</span>Lessons</a></li>
+      <li  [ngClass]="{'active' : slidertab == 3}" (click)="goToSlide(3)"><a class="homeservice"><span class="active" [hidden]="slidertab != 3">.</span>Home Services</a></li>
+      <li [ngClass]="{'active' : slidertab == 4}" (click)="goToSlide(4)"><a class="business"><span class="active" [hidden]="slidertab != 4">.</span>Business</a></li>
+      <li  [ngClass]="{'active' : slidertab == 5}" (click)="goToSlide(5)"><a class="event"><span class="active" [hidden]="slidertab != 5">.</span>Event</a></li>
+      <li  [ngClass]="{'active' : slidertab == 6}" (click)="goToSlide(6)"><a class="hobbie"><span class="active" [hidden]="slidertab != 6">.</span>Hobbies</a></li>
+      <li  [ngClass]="{'active' : slidertab == 7}" (click)="goToSlide(7)"><a class="repair"><span class="active" [hidden]="slidertab != 7">.</span>Repair</a></li>
+      <div class="hm_clear"></div>
+    </ul>
+  </ion-scroll>
+  </div>
+  <div class="hm_service_content">
+    <ion-slides pager="false" #mySlider class="hm_service_slide"  (ionSlideDidChange)="slideChanged()">
+      <ion-slide class="beauty">
+        <div class="hm_service_list">
+          <ul>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_spa.png">
+              </div>
+              <p>Spa</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_fitness.png">
+              </div>
+              <p>Fitness</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_makeup.png">
+              </div>
+              <p>Makeup</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_salon.png">
+              </div>
+              <p>Salon</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_yoga.png">
+              </div>
+              <p>Yoga</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_ayurveda.png">
+              </div>
+              <p>Ayurveda</p>
+            </li>
+            <li>
+              <div class="hm_service_more"></div>
+              <p>Show more</p>
+            </li>
+            <div class="hm_clear"></div>
+          </ul>
+        </div>
+      </ion-slide>
+      <ion-slide class="health">
+        <div class="hm_service_list">
+          <ul>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_diet.png">
+              </div>
+              <p>Diet</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_fitness.png">
+              </div>
+              <p>Fitness</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_strech.png">
+              </div>
+              <p>Streching</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_yoga.png">
+              </div>
+              <p>Yoga</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_massage.png">
+              </div>
+              <p>Massage</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_fatloss.png">
+              </div>
+              <p>Fat loss</p>
+            </li>
+            <li>
+              <div class="hm_service_more"></div>
+              <p>Show more</p>
+            </li>
+            <div class="hm_clear"></div>
+          </ul>
+        </div>
+
+      </ion-slide>
+      <ion-slide class="lesson">
+        <div class="hm_service_list">
+          <ul>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_education.png">
+              </div>
+              <p>Education</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_lan.png">
+              </div>
+              <p>Language</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_strech.png">
+              </div>
+              <p>Streching</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_driving.png">
+              </div>
+              <p>Driving</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_dance.png">
+              </div>
+              <p>Dance</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_art.png">
+              </div>
+              <p>Art</p>
+            </li>
+            <li>
+              <div class="hm_service_more"></div>
+              <p>Show more</p>
+            </li>
+            <div class="hm_clear"></div>
+          </ul>
+        </div>
+      </ion-slide>
+      <ion-slide class="homeservice">
+        <div class="hm_service_list">
+          <ul>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_furnish.png">
+              </div>
+              <p>Furnishing</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_painting.png">
+              </div>
+              <p>Painting</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_clean.png">
+              </div>
+              <p>Cleaning</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_floor.png">
+              </div>
+              <p>Floor</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_electrical.png">
+              </div>
+              <p>Electrical</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_plumbing.png">
+              </div>
+              <p>Plumbing</p>
+            </li>
+            <li>
+              <div class="hm_service_more"></div>
+              <p>Show more</p>
+            </li>
+            <div class="hm_clear"></div>
+          </ul>
+        </div>
+      </ion-slide>
+      <ion-slide class="business">
+        <div class="hm_service_list">
+          <ul>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_marketing.png">
+              </div>
+              <p>Marketing</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_branding.png">
+              </div>
+              <p>Branding</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_office.png">
+              </div>
+              <p>Office</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_security.png">
+              </div>
+              <p>Security</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_admin.png">
+              </div>
+              <p>Admin</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_analytic.png">
+              </div>
+              <p>Analytics</p>
+            </li>
+            <li>
+              <div class="hm_service_more"></div>
+              <p>Show more</p>
+            </li>
+            <div class="hm_clear"></div>
+          </ul>
+        </div>
+      </ion-slide>
+      <ion-slide class="event">
+        <div class="hm_service_list">
+          <ul>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_marriage.png">
+              </div>
+              <p>Marriage</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_dj.png">
+              </div>
+              <p>DJ</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_inaguaration.png">
+              </div>
+              <p>Inaguration</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_lighting.png">
+              </div>
+              <p>Lighting</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_decoration.png">
+              </div>
+              <p>Decoration</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_catering.png">
+              </div>
+              <p>Catering</p>
+            </li>
+            <li>
+              <div class="hm_service_more"></div>
+              <p>Show more</p>
+            </li>
+            <div class="hm_clear"></div>
+          </ul>
+        </div>
+      </ion-slide>
+      <ion-slide class="hobbie">
+        <div class="hm_service_list">
+          <ul>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_art.png">
+              </div>
+              <p>Art</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_music.png">
+              </div>
+              <p>Music</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_dance.png">
+              </div>
+              <p>Dance</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_sports.png">
+              </div>
+              <p>Sports</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_photo.png">
+              </div>
+              <p>Photography</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_gaming.png">
+              </div>
+              <p>Gaming</p>
+            </li>
+            <li>
+              <div class="hm_service_more"></div>
+              <p>Show more</p>
+            </li>
+            <div class="hm_clear"></div>
+          </ul>
+        </div>
+      </ion-slide>
+      <ion-slide class="repair">
+        <div class="hm_service_list">
+          <ul>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_pc.png">
+              </div>
+              <p>PC /Laptop</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_car.png">
+              </div>
+              <p>Car</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_motorcycle.png">
+              </div>
+              <p>Motorcycle</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_appliance.png">
+              </div>
+              <p>Appliances</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_photo.png">
+              </div>
+              <p>Camera</p>
+            </li>
+            <li>
+              <div class="hm_service_div">
+                <img src="assets/img/hm_gaming.png">
+              </div>
+              <p>Console</p>
+            </li>
+            <li>
+              <div class="hm_service_more"></div>
+              <p>Show more</p>
+            </li>
+            <div class="hm_clear"></div>
+          </ul>
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+  </div>
+</div>
+</ion-content>

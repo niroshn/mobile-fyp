@@ -1,0 +1,43 @@
+<ion-content class="hm_intro_bg" >
+  <ion-slides class="hm_slider" pager="true" #mySlider>
+    <ion-slide>
+      <div class="hm_slide">
+        <div class="hm_slide_banner">
+          <img src="assets/img/hm_slide1.png">
+        </div>
+        <h4>A to Z Services</h4>
+        <p>Lorem ipsum is a simply dummy text used by<br> the designers </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="hm_slide">
+        <div class="hm_slide_banner">
+          <img src="assets/img/hm_slide2.png">
+        </div>
+        <h4>Expert Professionals</h4>
+        <p>orem ipsum is a simply dummy text used by <br>the designers </p>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="hm_slide">
+        <div class="hm_slide_banner">
+          <img src="assets/img/hm_slide3.png">
+        </div>
+        <h4>Rate your Experience</h4>
+        <p>Lorem ipsum is a simply dummy text used by <br>the designers </p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <div class="hm_slide_btm_bay" [hidden] ="currentIndex == 2">
+      <p>Skip</p>
+       <button ion-button class="hm_btm_btn"(click)="goToNextSlide()">
+         <img src="assets/img/hm_round_arw.png">
+       </button>
+     </div>
+     <div class="hm_slide_btm_bay" [hidden] ="currentIndex != 2">
+         <p (click)="signin()">Sign in</p>
+          <button ion-button class="hm_btm_btn" (click)="signin()">
+            <img src="assets/img/hm_round_arw.png">
+          </button>
+        </div>
+</ion-content>
