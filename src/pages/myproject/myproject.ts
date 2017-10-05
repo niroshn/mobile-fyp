@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Calendar } from '@ionic-native/calendar';
+import { AlarmNotifications } from 'ionic-native';
+import { Storage } from '@ionic/storage';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @IonicPage()
 @Component({
@@ -12,8 +15,10 @@ export class Myproject {
 tab:any;
 medications : any;
 user_params : any ;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController,public http: Http) {
-
+Storage:Storage;
+localNotifications:LocalNotifications;
+  constructor(public navCtrl: NavController, private localNotifications: LocalNotifications,private storage: Storage,public navParams: NavParams,public modalCtrl: ModalController,public http: Http) {
+this.storage=storage;
     this.user_params = {
       "user_id": "nuwan@gmail.com"
   }
@@ -47,6 +52,8 @@ this.navCtrl.push('Projectlist');
 }
 
 getNextMedication(AllMedications:Array<any>){
+  var isSet=0;
+  var output;
   for(var i=0;i<AllMedications.length;i++){
     var med=AllMedications[i];
     //console.log(med["time"]);
@@ -55,9 +62,15 @@ getNextMedication(AllMedications:Array<any>){
     var tempDate=this.getNowDate(time);
     if(this.isGreaterNow(tempDate)){
       console.log(med);
+      isSet=1;
+      output=med;
       break;
     }
   }
+  if(isSet==0){
+      output=AllMedications[0];
+  }
+    return output;
 }
 
 getNowDate(time:String){
@@ -78,6 +91,15 @@ getNowDate(time:String){
       //console.log("less");
       return false;
     }
+  }
+
+  setAlarm(time:Date){
+    this.localNotifications.clearAll();
+    this.localNotifications.schedule({
+      text: 'Alarm has expired!',
+      at: new Date(time),
+      data: { message : 'json containing app-specific information to be posted when alarm triggers'}
+    });
   }
 
 }
