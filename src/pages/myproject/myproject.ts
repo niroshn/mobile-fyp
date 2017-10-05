@@ -17,10 +17,10 @@ user_params : any ;
       "user_id": "nuwan@gmail.com"
   }
 
-    this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/users/getCurrentUser", this.user_params)
+    this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/medication/getMedicationPlan", this.user_params)
     .subscribe(data => {
      
-      this.medications = data.json().data[0];
+      this.medications = data.json().data[0].day_plan;
       console.log(this.medications);
      }, error => {
       console.log(error);// Error getting the data
