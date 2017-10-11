@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController,AlertController,Platform } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Calendar } from '@ionic-native/calendar';
 import { AlarmNotifications } from 'ionic-native';
@@ -16,8 +16,17 @@ export class Myproject {
   medications: any;
   user_params: any;
   Storage: Storage;
-  localNotifications: LocalNotifications;
-  constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private storage: Storage, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
+  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private plt:Platform, private localNotifications: LocalNotifications, private storage: Storage, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
+    this.plt.ready().then((rdy)=>{
+      this.localNotifications.on('click',(notification,state)=>{
+        let json=JSON.parse(notification.data);
+        let alert=this.alertCtrl.create({
+          title:notification.title,
+          subTitle:json.mydata
+        });
+        alert.present();
+      });
+    });
     this.storage = storage;
     this.user_params = {
       "user_id": "nuwan@gmail.com"
@@ -34,6 +43,10 @@ export class Myproject {
       }, error => {
         console.log(error);// Error getting the data
       });
+
+      let dateString = '2017-10-11T20:40:00' 
+let newDate = new Date(dateString);
+      //this.setAlarm(new Date());
   }
 
   ionViewDidLoad() {
@@ -93,13 +106,15 @@ export class Myproject {
       return false;
     }
   }
-
-  setAlarm(time: Date) {
+//setAlarm(time: Date) {
+  setAlarm(time:Date) {
     this.localNotifications.clearAll();
     this.localNotifications.schedule({
-      text: 'Medication time!',
-      at: new Date(time),
-      data: { message: 'json containing app-specific information to be posted when alarm triggers' }
+      id:1,
+      title:'Medication',
+      text: 'You have to get Medication',
+      at:time,
+      data: {mydata:'Information'}
     });
   }
 

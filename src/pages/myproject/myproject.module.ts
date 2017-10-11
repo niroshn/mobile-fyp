@@ -12,11 +12,13 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   imports: [
     IonicPageModule.forChild(Myproject),
   ComponentsModule,
-  LocalNotifications,
   IonicStorageModule.forRoot()
   ],
   exports: [
     Myproject
+  ],
+  providers:[
+    LocalNotifications
   ]
 })
 export class MyprojectPageModule {}
