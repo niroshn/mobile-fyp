@@ -19,11 +19,13 @@ export class Profile {
       "user_id": "nuwan@gmail.com"
   }
 
+  this.user = {"_id":"59a3ba9d734d1d7ab9ead016","user_id":"nuwan@gmail.com","nic":"920123223V","title":"Mr.","firstname":"Vindula","lastname":"Fernando","birthdate":"1992-01-24","gender":"Male","maritalstatus":"Single","bloodtype":"A+","alcoholic":true,"phones":{"home":"+94112826896","mobile":"+94776711781"},"email":"dinukav.fernando@gmail.com","address":{"street":"Anderson Road","city":"Colombo 01","country":"Sri Lanka"},"avatar":"no-avatar.jpg","relations":[{"first_name":"nushan","last_name":"Bandra","address":"No 89/9 Mihin Road Colombo 3","tel":"+94772080907","relation":"Brother"},{"first_name":"shan","last_name":"Bandra","address":"No 89/9 Mihin Road Colombo 3","tel":"+94772080907","relation":"Brother"},{"first_name":"nun","last_name":"Bandra","address":"No 89/9 Mihin Road Colombo 3","tel":"+94772080907","relation":"Father"},{"first_name":"Hhan","last_name":"Bandra","address":"No 89/9 Mihin Road Colombo 3","tel":"+94772080907","relation":"Mother"},{"first_name":"nushani","last_name":"Bond","address":"No 89/9 Mihin Road Colombo 3","tel":"+94772080909","relation":"Sister"},{"first_name":"nushani","last_name":"Bond","address":"No 89/9 Mihin Road Colombo 3","tel":"+94772080909","relation":"Sister"}]};
+
   this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/users/getCurrentUser", this.user_params)
   .subscribe(data => {
    
     this.user = data.json().data[0];
-    console.log(this.user);
+    console.log(JSON.stringify(this.user));
    }, error => {
     console.log(error);// Error getting the data
   });
