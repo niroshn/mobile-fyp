@@ -25,51 +25,18 @@
 		 <ion-scroll scrollX="true" style="height:90px;">
 			<div class="hm_response_list">
 				<ul>
-					<li>
-						<div class="hm_catagory_item">
-									<img src="assets/img/hm_a1.png">
-						</div>
-						<div class="hm_response_details">Lora Spa</div>
-						<div class="hm_clear"></div>
-					</li>
-					<li>
+					<li *ngFor="let u of nextMedications" >
 							<div class="hm_catagory_item">
-									<img src="assets/img/hm_a1.png">
+								<img src="assets/img/hm_a1.png">
 						</div>
-						<div class="hm_response_details">Hein Beauty Spot</div>
-						<div class="hm_clear"></div>
-					</li>
-					<li>
-						<div class="hm_response_photo"></div>
-						<div class="hm_response_details">Orange Spa</div>
-						<div class="hm_clear"></div>
-					</li>
-					<li>
-						<div class="hm_response_photo"></div>
-						<div class="hm_response_details">Perl Saloon</div>
-						<div class="hm_clear"></div>
-					</li>
-					<li>
-						<div class="hm_response_photo"></div>
-						<div class="hm_response_details">Lora Spa</div>
-						<div class="hm_clear"></div>
-					</li>
-					<li>
-						<div class="hm_response_photo"></div>
-						<div class="hm_response_details">Hein Beauty Spot</div>
-						<div class="hm_clear"></div>
-					</li>
-					<li>
-						<div class="hm_response_photo"></div>
-						<div class="hm_response_details">Orange Spa</div>
-						<div class="hm_clear"></div>
-					</li>
-					<li>
-						<div class="hm_response_photo"></div>
-						<div class="hm_response_details">Perl Saloon</div>
-						<div class="hm_clear"></div>
+						
 					</li>
 					
+					<!---
+						<div class="hm_response_photo"></div>
+						<div class="hm_response_details">Orange Spa</div>
+						<div class="hm_clear"></div>
+					-->
 				</ul>
 			</div>
 		 </ion-scroll>
