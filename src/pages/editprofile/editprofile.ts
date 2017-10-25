@@ -6,7 +6,13 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
   selector: 'page-editprofile',
   templateUrl: 'editprofile.html',
 })
+
 export class Editprofile {
+  inputName:any;
+  lastName:any;
+  address:any;
+  telephone:any;
+  gender:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
   }
@@ -17,6 +23,10 @@ export class Editprofile {
 
     dismiss() {
    this.viewCtrl.dismiss();
+ }
+
+ addNewRelation(){
+   console.log(this.gender);
  }
 
 }

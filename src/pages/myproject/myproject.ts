@@ -44,7 +44,7 @@ export class Myproject {
         console.log(error);// Error getting the data
       });
 
-      //let d=this.getNowDate("14:08:00");
+      //let d=this.getNowDate("19:30:00");
       //this.setAlarm(d);
       //console.log(new Date(new Date().getTime() + 5 * 1000));
   }
@@ -119,7 +119,7 @@ export class Myproject {
     this.localNotifications.schedule({
       id:1,
       title:'Medication',
-      text: 'You have to get Medication',
+      text: 'You have to get Medication at ',
       at:time,
       data: {mydata:'Information'}
     });

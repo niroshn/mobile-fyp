@@ -7,27 +7,30 @@
 </ion-header>
 <ion-content padding class="hm_sign_bg">
 	<div class="hm_service_listing" style="padding-top:10px;">
-	<div class="hm_myprofile_photo">
+	<!-- <div class="hm_myprofile_photo">
 			<img src="assets/img/hm_profile_photo.png">
 			<div class="hm_edit_circle">
 				<img src="assets/img/hm_edit_circle.png">
 			</div>
-	</div>
+	</div> -->
 	<br>
 	<br>
 	<div class="hm_newaddress_field">
 		<ul>
 			<li>
-				<input class="hm_new_input" placeholder="User name">
+				<input id="fn" [(ngModel)]="inputName" class="hm_new_input" placeholder="First name">
 			</li>
 			<li>
-				<input class="hm_new_input" placeholder="user@gmail.com">
+				<input id="ln" [(ngModel)]="lastName" class="hm_new_input" placeholder="Last name">
 			</li>
 			<li>
-				<input class="hm_new_input" placeholder="+91 9961531199">
+				<input id="ad" [(ngModel)]="address" class="hm_new_input" placeholder="Address">
+			</li>
+			<li>
+				<input id="contact" [(ngModel)]="telephone" class="hm_new_input" placeholder="+91 9961531199">
 			</li>
 			<li style="padding-top: 10px;">
-				<div class="hm_cancel_reason" style="font-size: 16px;">
+				<!-- <div class="hm_cancel_reason" style="font-size: 16px;">
 					Gender
 				</div>
 				<div class="hm_cancel_radio" style="padding-left:20px;">
@@ -35,7 +38,15 @@
 					<label>Male</label>
 					<ion-radio ng-model="choice3" ng-value="'b'"></ion-radio>
 					<label>Female</label>
-				</div>
+				</div> -->
+				<ion-item>
+					<ion-label>Status</ion-label>
+					<ion-select [(ngModel)]="gender">
+					  <ion-option value="spouse">Spouse</ion-option>
+					  <ion-option value="parent">Parent</ion-option>
+					  <ion-option value="siblings">Siblings</ion-option>
+					</ion-select>
+				  </ion-item>
 				<div class="hm_clear"></div>
 			</li>
 		</ul>
@@ -44,7 +55,7 @@
 </ion-content>
 <ion-footer>
 	<div class="hm_btn_bottom" style="position: fixed;bottom: 50px">
-		<button class="hm_bottom_save" (click)="dismiss()">Save<span><img src="assets/img/hm_tick.png"></span></button>
+		<button class="hm_bottom_save" (click)='addNewRelation()'>Save<span><img src="assets/img/hm_tick.png"></span></button>
 	</div>
 <tabcomponent></tabcomponent>
 </ion-footer>
