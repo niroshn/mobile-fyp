@@ -44,9 +44,9 @@ export class Myproject {
         console.log(error);// Error getting the data
       });
 
-      let dateString = '2017-10-11T20:40:00' 
-let newDate = new Date(dateString);
-      //this.setAlarm(new Date());
+      //let d=this.getNowDate("14:08:00");
+      //this.setAlarm(d);
+      //console.log(new Date(new Date().getTime() + 5 * 1000));
   }
 
   ionViewDidLoad() {
@@ -64,25 +64,31 @@ let newDate = new Date(dateString);
     this.navCtrl.push('Projectlist');
   }
 
+  //return the next medication array. should provide the medication array as input paramenters.
   getNextMedication(AllMedications: Array<any>) {
     var isSet = 0;
     var output;
+    var nextAlarmTime;
     for (var i = 0; i < AllMedications.length; i++) {
       var med = AllMedications[i];
       //console.log(med["time"]);
-      let date = new Date();
+      //let date = new Date();
       var time = med["time"];
       var tempDate = this.getNowDate(time);
       if (this.isGreaterNow(tempDate)) {
         console.log(med);
         isSet = 1;
         output = med;
+        nextAlarmTime=tempDate;
         break;
       }
     }
     if (isSet == 0) {
       output = AllMedications[0];
+      var medOne=AllMedications[0];
+      nextAlarmTime=this.getNowDate(medOne['time']);
     }
+    this.setAlarm(nextAlarmTime);
     return output;
   }
 
@@ -92,6 +98,7 @@ let newDate = new Date(dateString);
     var t = time;
     var sp = t.split(":");
     date.setHours(parseInt(sp[0]), parseInt(sp[1]), parseInt(sp[2]));
+    console.log(date);
     return date;
   }
   isGreaterNow(date: Date) {
