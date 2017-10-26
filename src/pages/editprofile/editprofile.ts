@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import {Profile} from '../profile/profile';
 
 @IonicPage()
 @Component({
@@ -8,11 +9,11 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 
 export class Editprofile {
-  inputName: any;
+  firstName: any;
   lastName: any;
   address: any;
   telephone: any;
-  gender: any;
+  relation: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
@@ -26,9 +27,12 @@ export class Editprofile {
   }
 
   addNewRelation() {
-    console.log(this.gender);
+    //console.log(this.gender);
     //do the api call with parameters
-    
+    this.navCtrl.push(Profile,{
+      user:{"first_name":this.firstName,"last_name":this.lastName,"address":this.address,"tel":this.telephone,"relation":this.relation}
+    })
+
   }
 
 }

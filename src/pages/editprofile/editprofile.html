@@ -18,7 +18,7 @@
 	<div class="hm_newaddress_field">
 		<ul>
 			<li>
-				<input id="fn" [(ngModel)]="inputName" class="hm_new_input" placeholder="First name">
+				<input id="fn" [(ngModel)]="firstName" class="hm_new_input" placeholder="First name">
 			</li>
 			<li>
 				<input id="ln" [(ngModel)]="lastName" class="hm_new_input" placeholder="Last name">
@@ -41,7 +41,7 @@
 				</div> -->
 				<ion-item>
 					<ion-label>Status</ion-label>
-					<ion-select [(ngModel)]="gender">
+					<ion-select [(ngModel)]="relation">
 					  <ion-option value="spouse">Spouse</ion-option>
 					  <ion-option value="parent">Parent</ion-option>
 					  <ion-option value="siblings">Siblings</ion-option>
