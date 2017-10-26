@@ -16,6 +16,7 @@ export class Myproject {
   medications: any;
   user_params: any;
   Storage: Storage;
+  nextMedications : any;
   constructor(public navCtrl: NavController,public alertCtrl:AlertController,private plt:Platform, private localNotifications: LocalNotifications, private storage: Storage, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
     this.plt.ready().then((rdy)=>{
       this.localNotifications.on('click',(notification,state)=>{
@@ -89,6 +90,8 @@ export class Myproject {
       nextAlarmTime=this.getNowDate(medOne['time']);
     }
     this.setAlarm(nextAlarmTime);
+    this.nextMedications= output.medications;
+    console.log(this.nextMedications);
     return output;
   }
 
