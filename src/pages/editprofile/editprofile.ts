@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -8,25 +8,27 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
 })
 
 export class Editprofile {
-  inputName:any;
-  lastName:any;
-  address:any;
-  telephone:any;
-  gender:any;
+  inputName: any;
+  lastName: any;
+  address: any;
+  telephone: any;
+  gender: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Editprofile');
   }
 
-    dismiss() {
-   this.viewCtrl.dismiss();
- }
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 
- addNewRelation(){
-   console.log(this.gender);
- }
+  addNewRelation() {
+    console.log(this.gender);
+    //do the api call with parameters
+    
+  }
 
 }
