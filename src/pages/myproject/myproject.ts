@@ -128,4 +128,12 @@ export class Myproject {
     });
   }
 
+  viewMedicationDetails(medicalInfo) {
+    console.log("dnd");
+    let modal = this.modalCtrl.create('Addpopup',medicalInfo);
+    modal.present();
+
+
+    }
+
 }

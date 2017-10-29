@@ -8,7 +8,16 @@ import { IonicPage, NavController,ViewController,NavParams } from 'ionic-angular
 })
 export class Addpopup {
 
+  image:any;
+  name:any;
+  count:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
+    
+    this.name = navParams.get('name');
+    this.image = navParams.get('src');
+    this.count = navParams.get('count');
+    console.log(this.image);
   }
 
   ionViewDidLoad() {
