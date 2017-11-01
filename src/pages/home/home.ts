@@ -140,7 +140,16 @@ modal.present();
 
 
 service(id) {
-this.navCtrl.push('Service', {id : id});
+
+    if(id==1){
+        this.navCtrl.push('Myproject');
+    }
+    else if(id==2){
+
+    }
+    else if(id==3){
+        this.navCtrl.push('Test');
+    }
 }
 
 fitness() {
