@@ -7,8 +7,13 @@ import { IonicPage, NavController,PopoverController, NavParams } from 'ionic-ang
   templateUrl: 'feedback.html',
 })
 export class Feedback {
+    name : any;
+    address : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController) {
+    this.name = navParams.get('first_name')+" "+navParams.get('last_name') ;
+    this.address  = navParams.get('address') ;
+    
   }
 
   ionViewDidLoad() {

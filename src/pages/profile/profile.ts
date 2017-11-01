@@ -59,5 +59,11 @@ export class Profile {
     }
   }
 
+  contact(user){
+    console.log(user);
+    let modal = this.modalCtrl.create('Feedback',user);
+    modal.present();
+  }
+
 
 }
