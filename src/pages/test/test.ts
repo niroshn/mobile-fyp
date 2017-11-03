@@ -37,9 +37,9 @@ export class Test {
     this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/medication/getMedicalTests", this.user_params)
       .subscribe(data => {
 
-        this.medications = data.json().data[0].day_plan;
+        this.medications = data.json().data;
         console.log(this.medications);
-        this.getNextMedication(this.medications);
+        
         console.log('nothisg');
       }, error => {
         console.log(error);// Error getting the data
@@ -65,71 +65,8 @@ export class Test {
     this.navCtrl.push('Projectlist');
   }
 
-  //return the next medication array. should provide the medication array as input paramenters.
-  getNextMedication(AllMedications: Array<any>) {
-    var isSet = 0;
-    var output;
-    var nextAlarmTime;
-    for (var i = 0; i < AllMedications.length; i++) {
-      var med = AllMedications[i];
-      //console.log(med["time"]);
-      //let date = new Date();
-      var time = med["time"];
-      var tempDate = this.getNowDate(time);
-      if (this.isGreaterNow(tempDate)) {
-        console.log(med);
-        isSet = 1;
-        output = med;
-        nextAlarmTime=tempDate;
-        break;
-      }
-    }
-    if (isSet == 0) {
-      output = AllMedications[0];
-      var medOne=AllMedications[0];
-      nextAlarmTime=this.getNowDate(medOne['time']);
-    }
-    this.setAlarm(nextAlarmTime);
-    this.nextMedications= output.medications;
-    console.log(this.nextMedications);
-    return output;
-  }
-
-  getNowDate(time: String) {
-    let date = new Date();
-    //var t="06:26:10";
-    var t = time;
-    var sp = t.split(":");
-    date.setHours(parseInt(sp[0]), parseInt(sp[1]), parseInt(sp[2]));
-    console.log(date);
-    return date;
-  }
-  isGreaterNow(date: Date) {
-    //compare the diven date with today and return true if after now 
-    let now = new Date();
-    if (date > now) {
-      //console.log("Greater");
-      return true;
-    }
-    else {
-      //console.log("less");
-      return false;
-    }
-  }
-//setAlarm(time: Date) {
-  setAlarm(time:Date) {
-    this.localNotifications.clearAll();
-    this.localNotifications.schedule({
-      id:1,
-      title:'Medication',
-      text: 'You have to get Medication at ',
-      at:time,
-      data: {mydata:'Information'}
-    });
-  }
-
+  
   viewMedicationDetails(medicalInfo) {
-    console.log("dnd");
     let modal = this.modalCtrl.create('Addpopup',medicalInfo);
     modal.present();
 
