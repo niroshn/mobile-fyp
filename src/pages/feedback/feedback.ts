@@ -11,6 +11,7 @@ export class Feedback {
     name : any;
     address : any;
     user_params: any;
+    massage : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,public http: Http) {
     this.name = navParams.get('first_name')+" "+navParams.get('last_name') ;
@@ -33,10 +34,11 @@ export class Feedback {
      goBack(){
      this.navCtrl.pop();
    }
-   sendmassage(tel){
+   sendmassage(){
+     let msg = "Your Mom Says : "+ this.massage;
     let massage = {  
       "tel":"94772080907",
-      "sms":"This is test message"
+      "sms":msg
    
    }
    

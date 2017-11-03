@@ -27,7 +27,7 @@
 <div class="hm_clear"></div>
 <br>
 <p>Massage</p>
-	<textarea rows="5" class="hm_feedback_text">
+	<textarea [(ngModel)]="massage"rows="5" class="hm_feedback_text">
     Addv text here
 	</textarea>
 	</div>
@@ -35,6 +35,6 @@
 </ion-content>
 <ion-footer>
 <div class="hm_btn_bottom" >
-	<button (click)="sendmassage(name)" class="hm_ratting_submit">Send</button>
+	<button (click)="sendmassage()" class="hm_ratting_submit">Send</button>
 </div>
 </ion-footer>
