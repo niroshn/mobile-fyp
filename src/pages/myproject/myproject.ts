@@ -136,4 +136,9 @@ export class Myproject {
 
     }
 
+   viewUpcommingMedications(info){
+    let modal = this.modalCtrl.create('Projectlist',info);
+    modal.present();
+   } 
+
 }

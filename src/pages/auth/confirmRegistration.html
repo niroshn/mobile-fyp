@@ -1,0 +1,131 @@
+
+
+<ion-content>
+        <div class="hm_wrapper">
+                <button ion-button class="hm_back_btn hm_button" (click)="dismiss()"></button>
+                <div class="hm_signin_inner_wrapper">
+                  <br>
+                  <h3>Enter Verification code</h3>
+                  <h4>We have sent you a 4 digit verification<br> code on</h4>
+                  <h5>Your Email</h5>
+                  <br>
+                  <br>
+                  <ion-item>
+                        <ion-label floating>Confirmation Code</ion-label>
+                        <ion-input [(ngModel)]="confirmationCode" type="text"></ion-input>
+                </ion-item>
+                  <!--
+                  <div class="hm_verification_code">
+                    <ul>
+                      <li>
+                        <select class="hm_verification_code_select">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                        </select>
+                      </li>
+                      <li>
+                        <select class="hm_verification_code_select">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                        </select>
+                      </li>
+                      <li>
+                        <select class="hm_verification_code_select">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                        </select>
+                      </li>
+                      <li>
+                        <select class="hm_verification_code_select">
+                          <option>0</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                        </select>
+                      </li>
+                      <li>
+                            <select class="hm_verification_code_select">
+                              <option>0</option>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                              <option>9</option>
+                            </select>
+                          </li>
+                    </ul>
+                    
+                  </div>
+
+                -->
+                </div>
+                <div class="hm_slide_btm_bay" (click)="onConfirmRegistration()">
+                     <button ion-button class="hm_btm_btn">
+                       <img src="assets/img/hm_round_arw_blck.png">
+                     </button>
+                </div>
+              </div>
+              <ion-grid>
+                    <ion-row>
+                        <ion-col width-30>
+                            <button ion-button clear small (click)="navToResendCode()">Resend Code</button>
+                        </ion-col>
+                        <ion-col width-30>
+                            <button ion-button clear small (click)="navToRegister()">Registration</button>
+                        </ion-col>
+                        <ion-col width-30>
+                            <button ion-button clear small (click)="navToLogin()">Login</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+                <!---
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Confirmation Code</ion-label>
+            <ion-input [(ngModel)]="confirmationCode" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <button ion-button block large outline (click)="onConfirmRegistration()">Confirm</button>
+        </ion-item>
+
+    </ion-list>
+
+-->
+
+</ion-content>

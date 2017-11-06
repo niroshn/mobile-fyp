@@ -1,0 +1,61 @@
+
+<ion-content>
+    <!---
+    <ion-list>
+
+        <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input [(ngModel)]="email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input [(ngModel)]="password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <button ion-button block outline large (click)="signMeIn()">Sign in</button>
+        </ion-item>
+
+    </ion-list>
+-->
+   
+
+
+    <div class="hm_wrapper">
+        <div class="hm_signin_inner_wrapper">
+          <div class="hm_logo">
+            <img src="assets/img/hm_logo.png">
+            <h5>Welcome to</h5>
+            <h6>V CareTaker</h6>
+            <span><img src="assets/img/hm_vector_underline.png"></span>
+          </div>
+          <br>
+          <br>
+          <div class="hm_sign_detail">
+            <div class="hm_mobile_number_div">
+              <input class="hm_sign_number_input" [(ngModel)]="email" placeholder="Email">
+              <div class="hm_clear"></div>
+            </div>
+            <div class="hm_mobile_number_div">
+                <input class="hm_sign_number_input" [(ngModel)]="password"  type="password" placeholder="Password">
+                <div class="hm_clear"></div>
+              </div>
+            <button class="hm_sign_btn"(click)="signMeIn()">Login</button>
+          </div>
+        </div>
+      </div>
+
+      <ion-grid>
+            <ion-row>
+                <ion-col width-50>
+                    <button ion-button clear small (click)="navToForgotPassword()">Forgot Password</button>
+                </ion-col>
+                <ion-col width-50>
+                    <button ion-button clear small (click)="navToRegister()">Register</button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+</ion-content>
+

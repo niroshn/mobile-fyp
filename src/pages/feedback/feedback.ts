@@ -44,7 +44,7 @@ export class Feedback {
    
     this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/notifications/notifications", massage)
     .subscribe(data => {
-
+      this.navCtrl.push('Profile');
 
     }, error => {
       console.log(error);// Error getting the data

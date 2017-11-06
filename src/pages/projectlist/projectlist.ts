@@ -7,8 +7,11 @@ import { IonicPage, NavController, NavParams,PopoverController } from 'ionic-ang
   templateUrl: 'projectlist.html',
 })
 export class Projectlist {
-
+  medications:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController) {
+
+    this.medications = navParams.get("medications");
+    
   }
 
   ionViewDidLoad() {

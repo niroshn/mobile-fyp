@@ -47,7 +47,7 @@
 		<div *ngFor="let u of medications"  class="hm_response">
 				<div class="hm_response_left"><strong>{{u.time}}</strong></div>
 				<div class="hm_response_right">
-					<div class="hm_show_all hm_show_all_deactive">Read all<span><img src="assets/img/hm_show_arw.png"></span></div>
+					<div class="hm_show_all hm_show_all_deactive">Read all<span><img (click)="viewUpcommingMedications(u)"src="assets/img/hm_show_arw.png"></span></div>
 				</div>
 				<div class="hm_clear"></div>
 			</div>
