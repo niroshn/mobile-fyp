@@ -47,7 +47,9 @@ Profile
 		<div *ngFor="let u of user.relations" class="hm_response">
 			<div class="hm_response_left"><strong>{{u.first_name}} {{u.last_name}}</strong></div>
 			<div class="hm_response_right">
-				<div (click)="contact(u)" class="hm_show_all hm_show_all_deactive">Contact<span></span></div>
+					<ion-chip (click)="contact(u)" color="secondary">
+							<ion-label>Contact</ion-label>
+				    </ion-chip>
 			</div>
 			<div class="hm_clear"></div>
 		</div>
