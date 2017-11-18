@@ -1,0 +1,18 @@
+<ion-content class="hm_intro_bg" >
+ 
+    <ion-slide>
+      <div class="hm_slide">
+        <div class="hm_slide_banner">
+          <img src="assets/img/vec.png">
+        </div>
+      
+      </div>
+    </ion-slide>
+    
+     <div class="hm_slide_btm_bay" [hidden] ="currentIndex != 2">
+         <p (click)="signin()">Home</p>
+          <button ion-button class="hm_btm_btn" (click)="signin()">
+            <img src="assets/img/hm_round_arw.png">
+          </button>
+      </div>
+</ion-content>

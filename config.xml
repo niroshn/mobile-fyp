@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.techware.handyman" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Handyman</name>
+<widget id="com.kerbio.bcare" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>B Care</name>
     <description>Handyman is a Customizable  Service Marketplace template for full range of home services like Electrical, Plumbing, Carpentering, Home cleaning, AC repairing, Pest controlling services etc and professional  services like Salons, Music teachers,Counselors, photographer for any occasion, yoga or fitness trainer, interior designer, home event planner etc.</description>
     <author email="mail@techware.co.in" href="http://techware.co.in">Techware Solutions</author>
     <content src="index.html" />

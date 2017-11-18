@@ -1,15 +1,12 @@
-.ios, .md {
+
+    page-home {
     
-       page-home {
+        .btn {
+            display:block;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            border: 3px solid red;
+          }
+}
     
-           .scroll-content {
-               background-color: map-get($colors, light);
-           }
-    
-           ion-card-header {
-               font-weight: bold;
-           }
-    
-       }
-    
-   }

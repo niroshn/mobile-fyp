@@ -28,6 +28,8 @@ lineChart: any;
 
   
   ionViewDidLoad() {
+
+    /*
     
            this.barChart = new Chart(this.barCanvas.nativeElement, {
     
@@ -151,6 +153,8 @@ lineChart: any;
                                }
                     
                            });
+
+                           */
             
           }
 
