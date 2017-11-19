@@ -179,6 +179,9 @@ service(id) {
     else if(id==4){
         this.navCtrl.push('Address');
     }
+    else if (id ==6){
+        this.navCtrl.push('Profile');
+    }
 
 }
 
