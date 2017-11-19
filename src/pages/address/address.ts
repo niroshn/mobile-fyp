@@ -24,16 +24,18 @@ export class Address {
   idealLabel :any;
   labels :any;
   charts : any;
+  chartName :any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
     this.showChart = false;
     this.title="";
     this.charts = [];
+    this.chartName ="";
   }
-  show(name){
+  show(index){
+    console.log(index);
     
-    if (name=='bmi'){
-      console.log(name);
+    if (this.chartName=="health"&&index==1){
       this.bmi();
     }
     else if(name=='bp'){
@@ -49,7 +51,10 @@ export class Address {
 
   setChart(name){
     this.charts = [];
+    this.chartName =name;
+
     if(name=='health'){
+
       this.charts = [{
         name: "Weight",
         pro : "weight"

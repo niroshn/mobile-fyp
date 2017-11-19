@@ -35,7 +35,9 @@
 	<div class="hm_service_listing" style="padding-top:10px;">
 		<div class="hm_schedule">
 			<ul>
-				<li (click)="show('bmi')">BMI</li>
+	
+				<li *ngFor="let u of charts ; let i = index"  (click)="show(i)">{{u.name}}</li>
+	
 			</ul>
 		</div>
 		<ion-card> 
