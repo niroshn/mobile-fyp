@@ -23,10 +23,12 @@ export class Address {
   userLabel : any;
   idealLabel :any;
   labels :any;
+  charts : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
     this.showChart = false;
     this.title="";
+    this.charts = [];
   }
   show(name){
     
@@ -43,6 +45,50 @@ export class Address {
     
 
   
+  }
+
+  setChart(name){
+    this.charts = [];
+    if(name=='health'){
+      this.charts = [{
+        name: "Weight",
+        pro : "weight"
+      },
+      {
+        name: "Blood Pressure",
+        pro : "bld-pre"
+      },
+      {
+        name: "Body Mass Index",
+        pro : "bmi"
+      },
+      {
+        name: "Blood Pressure",
+        pro : "bld-pre"
+      },
+    ]
+    }
+    else if (name=='disease'){
+      this.charts = [{
+        name: "Weight",
+        pro : "weight"
+      },
+      {
+        name: "Blood Pressure",
+        pro : "bld-pre"
+      },
+      {
+        name: "Body Mass Index",
+        pro : "bmi"
+      },
+      {
+        name: "Blood Pressure",
+        pro : "bld-pre"
+      },
+    ]
+
+    }
+
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Address');
