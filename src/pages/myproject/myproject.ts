@@ -124,6 +124,7 @@ export class Myproject {
       title:'Medication',
       text: 'You have to get Medication at ',
       at:time,
+      sound:'res://platform_default',
       data: {mydata:'Information'}
     });
   }
