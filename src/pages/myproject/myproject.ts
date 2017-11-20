@@ -77,8 +77,6 @@ export class Myproject {
     var nextAlarmTime;
     for (var i = 0; i < AllMedications.length; i++) {
       var med = AllMedications[i];
-      //console.log(med["time"]);
-      //let date = new Date();
       var time = med["time"];
       var tempDate = this.getNowDate(time);
       if (this.isGreaterNow(tempDate)) {

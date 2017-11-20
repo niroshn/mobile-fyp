@@ -11,14 +11,13 @@
 				<div class="hm_add_detail">
 					<div class="hm_add_name_bay">
 						<h6>{{name}}</h6>
-						<span class="price">Count : {{count}}</span><span>|</span><span class="time">50 min per </span>
+						<span *ngIf="count" class="price">Count : {{count}}</span><span></span><span class="time"> </span>
 					</div>
 					<div class="hm_add_list">
 						<h6>Description</h6>
 						<ul>
-							<li>Full Legs and Arms</li>
-							<li>Threading</li>
-							<li>Rica peel off</li>
+							<li>{{desc}}</li>
+							
 						</ul>
 						<br>
 						

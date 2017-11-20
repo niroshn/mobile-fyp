@@ -11,12 +11,15 @@ export class Addpopup {
   image:any;
   name:any;
   count:any;
+  desc:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
     
     this.name = navParams.get('name');
     this.image = navParams.get('src');
     this.count = navParams.get('count');
+    this.desc = navParams.get('desc');
+
     console.log(this.image);
   }
 
