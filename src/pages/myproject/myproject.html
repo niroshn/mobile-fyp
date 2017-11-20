@@ -47,7 +47,9 @@
 		<div *ngFor="let u of medications"  class="hm_response">
 				<div class="hm_response_left"><strong>{{u.time}}</strong></div>
 				<div class="hm_response_right">
-					<div class="hm_show_all hm_show_all_deactive">Read all<span><img (click)="viewUpcommingMedications(u)"src="assets/img/hm_show_arw.png"></span></div>
+						<ion-chip (click)="viewUpcommingMedications(u)" color="primary">
+								<ion-label>Okay</ion-label>
+						</ion-chip>
 				</div>
 				<div class="hm_clear"></div>
 			</div>
@@ -59,17 +61,39 @@
 	<div class="hm_response">
 		<div class="hm_response_left"><strong>06:00:00</strong></div>
 		<div class="hm_response_right">
-			<div class="hm_show_all hm_show_all_deactive">Read all<span><img src="assets/img/hm_show_arw.png"></span></div>
+				<ion-chip  color="secondary">
+						<ion-label>View</ion-label>
+				</ion-chip>	
 		</div>
 		<div class="hm_clear"></div>
 	</div>
 	<div class="hm_response">
 			<div class="hm_response_left"><strong>04:00:00</strong></div>
 			<div class="hm_response_right">
-				<div class="hm_show_all hm_show_all_deactive">Read all<span><img src="assets/img/hm_show_arw.png"></span></div>
+					<ion-chip (click)="contact(u)" color="danger">
+							<ion-label>View</ion-label>
+					</ion-chip>	
 			</div>
 			<div class="hm_clear"></div>
-		</div>
+	</div>
+	<div class="hm_response">
+			<div class="hm_response_left"><strong>04:00:00</strong></div>
+			<div class="hm_response_right">
+					<ion-chip color="secondary">
+							<ion-label>View</ion-label>
+					</ion-chip>	
+			</div>
+			<div class="hm_clear"></div>
+	</div>
+	<div class="hm_response">
+			<div class="hm_response_left"><strong>04:00:00</strong></div>
+			<div class="hm_response_right">
+					<ion-chip  color="secondary">
+							<ion-label>View</ion-label>
+					</ion-chip>	
+			</div>
+			<div class="hm_clear"></div>
+	</div>
 	</div>
 </div>
 </div>

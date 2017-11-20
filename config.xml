@@ -77,7 +77,9 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
-    <plugin name="cordova-plugin-calendar" spec="^4.6.0" />
+    <plugin name="cordova-plugin-calendar" spec="^4.6.0">
+        <variable name="CALENDAR_USAGE_DESCRIPTION" value=" " />
+    </plugin>
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />

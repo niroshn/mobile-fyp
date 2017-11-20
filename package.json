@@ -69,7 +69,9 @@
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
-            "cordova-plugin-calendar": {},
+            "cordova-plugin-calendar": {
+                "CALENDAR_USAGE_DESCRIPTION": " "
+            },
             "cordova-sqlite-storage": {},
             "de.appplant.cordova.plugin.local-notification": {}
         },
