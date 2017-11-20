@@ -32,6 +32,12 @@ export class Neu {
     this.title="";
     this.charts = [];
     this.chartName ="";
+    /*
+    */
+
+   
+      
+    //
   }
   show(index){
     console.log(index);
@@ -67,6 +73,32 @@ export class Neu {
 
   }
   ionViewDidLoad() {
+    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+      
+                 type: 'doughnut',
+                 data: {
+                     labels: ["Fats", "Protein", "Carbohydrates", "Other"],
+                     datasets: [{
+                         label: '# of Votes',
+                         data: [25, 15, 40, 5],
+                         backgroundColor: [
+                             'rgba(255, 99, 132, 0.2)',
+                             'rgba(54, 162, 235, 0.2)',
+                             'rgba(255, 206, 86, 0.2)',
+                             'rgba(75, 192, 192, 0.2)',
+                             
+                         ],
+                         hoverBackgroundColor: [
+                             "#FF6384",
+                             "#36A2EB",
+                             "#FFCE56",
+                             "#FF6384",
+                            
+                         ]
+                     }]
+                 }
+      
+             });
     this.tab = "";
     
     console.log('ionViewDidLoad Address');
