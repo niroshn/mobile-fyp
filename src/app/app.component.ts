@@ -6,6 +6,8 @@ import {AwsUtil} from "../providers/aws.service";
 import {ControlPanelComponent} from "../pages/controlpanel/controlpanel";
 import {LoginComponent} from "../pages/auth/login.component";
 import {LogoutComponent} from "../pages/auth/logout.component";
+import { Storage } from '@ionic/storage';
+import { Home } from '../pages/home/home';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +15,7 @@ import {LogoutComponent} from "../pages/auth/logout.component";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   public loginPage = LoginComponent;
-  public homePage = ControlPanelComponent;
+  public homePage = Home;
   public logoutPage = LogoutComponent;
   public settingsPage = ControlPanelComponent;
   rootPage: any;
@@ -21,7 +23,7 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public events: Events,
-    public awsUtil: AwsUtil) {
+    public awsUtil: AwsUtil,private storage: Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -35,12 +37,23 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.awsUtil.initAwsService();
       
-      this.rootPage = this.loginPage;
+     
+      this.storage.get('user').then((val) => {
+        console.log('Your age is', val);
+        if(val){
+          this.rootPage = this.homePage
+        }
+        else{
+          this.rootPage = this.loginPage;
+        }
+        
+      });
       
       console.log("Hiding splash screen");
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.listenToLoginEvents();
+      
     });
   }
 

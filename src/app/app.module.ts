@@ -36,7 +36,7 @@ import { IonicStorageModule } from '@ionic/storage';
     ForgotPasswordStep1Component,
     ForgotPasswordStep2Component,
     ControlPanelComponent,
-    //Home
+    Home
   ],
   imports: [
     BrowserModule,
@@ -55,7 +55,7 @@ import { IonicStorageModule } from '@ionic/storage';
     ForgotPasswordStep1Component,
     ForgotPasswordStep2Component,
     ControlPanelComponent,
-    //Home
+    Home
   ],
   providers: [
     CognitoUtil,
