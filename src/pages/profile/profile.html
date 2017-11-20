@@ -24,35 +24,11 @@ Profile
 		<div class="hm_myprofile_detail">
 			<div class="hm_myprofile_left">
 				<h6>Blood Type : {{user.bloodtype}}</h6>
-				<h6>Blood Type : {{user.bloodtype}}</h6>
-				
+				<h6>maritalstatus : Married</h6>
 			</div>
-			<div class="hm_myprofile_right">
-				<div class="hm_edit_circle1" (click)="editprofile()">
-					<img src="assets/img/hm_edit_circle1.png">
-				</div>
-			</div>
-			<div class="hm_clear"></div>
-			<br>
-			<hr>
-			<div class="hm_clear"></div>
+			
 		</div>
 
-		<div class="hm_response">
-			<div class="hm_response_left"><strong>Relations</strong></div>	
-		</div>
-		<hr>
-		<br>
-		
-		<div *ngFor="let u of user.relations" class="hm_response">
-			<div class="hm_response_left"><strong>{{u.first_name}} {{u.last_name}}</strong></div>
-			<div class="hm_response_right">
-					<ion-chip (click)="contact(u)" color="secondary">
-							<ion-label>Contact</ion-label>
-				    </ion-chip>
-			</div>
-			<div class="hm_clear"></div>
-		</div>
 		
 	</div>
 
