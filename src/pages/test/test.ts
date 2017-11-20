@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController,AlertController,Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController,ModalController,AlertController,Platform } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Calendar } from '@ionic-native/calendar';
 import { AlarmNotifications } from 'ionic-native';
@@ -17,7 +17,7 @@ export class Test {
   user_params: any;
   Storage: Storage;
   nextMedications : any;
-  constructor(public navCtrl: NavController,public alertCtrl:AlertController,private plt:Platform, private localNotifications: LocalNotifications, private storage: Storage, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
+  constructor(public navCtrl: NavController,public loadingCtrl: LoadingController, public alertCtrl:AlertController,private plt:Platform, private localNotifications: LocalNotifications, private storage: Storage, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
     this.plt.ready().then((rdy)=>{
       this.localNotifications.on('click',(notification,state)=>{
         let json=JSON.parse(notification.data);
@@ -33,6 +33,11 @@ export class Test {
       "user_id": "nuwan@gmail.com"
     }
     //let c_time = new Time();
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+    loading.present();
 
     this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/medication/getMedicalTests", this.user_params)
       .subscribe(data => {
@@ -41,6 +46,7 @@ export class Test {
         console.log(this.medications);
         
         console.log('nothisg');
+        loading.dismiss();
       }, error => {
         console.log(error);// Error getting the data
       });
