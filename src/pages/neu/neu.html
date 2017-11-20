@@ -19,17 +19,17 @@
 		<ion-scroll scrollX="true" style="height:90px;">
 				<div class="hm_response_list">
 					<ul>
-						<li (click)="setChart('health')">
+						<li (click)="setChart('b')">
 							<div class="hm_response_photo"></div>
 							<div class="hm_response_details">Breackfast</div>
 							<div class="hm_clear"></div>
 						</li>
-						<li (click)="setChart('disease')"> 
+						<li (click)="setChart('l')"> 
 							<div class="hm_response_photo"></div>
 							<div class="hm_response_details">Lunch</div>
 							<div class="hm_clear"></div>
 						</li>
-						<li (click)="setChart('medication')">
+						<li (click)="setChart('d')">
 							<div class="hm_response_photo"></div>
 							<div class="hm_response_details">Dinner</div>
 							<div class="hm_clear"></div>
@@ -38,22 +38,180 @@
 				</div>
 			 </ion-scroll>
 	<div class="hm_service_listing" style="padding-top:10px;">
-		<div class="hm_schedule">
-			<ul>
-	
-				<li *ngFor="let u of charts ; let i = index"  (click)="show(i)">{{u.name}}</li>
-	
-			</ul>
-		</div>
-		<ion-card> 
-				<ion-card-header>
-					{{title}}
-				</ion-card-header>
-				<ion-card-content>
-					<canvas #lineCanvas></canvas>
-				</ion-card-content>
-			</ion-card>
+			<div class="hm_payment_div">
+					
+					<div class="hm_payment_content" *ngIf="tab==='break'">
+						<ul>
+							<li>
+								<div class="hm_cancel_radio">
+									<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+								</div>
+								<div class="hm_cancel_reason">
+										1/2 medium banana 
+								</div>
+								<div class="hm_clear"></div>
+							</li>
+							<li>
+								<div class="hm_cancel_radio">
+									<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+								</div>
+								<div class="hm_cancel_reason">
+										1/2 cup cooked oatmeal 
+								</div>
+								<div class="hm_clear"></div>
+							</li>
+							<li>
+								<div class="hm_cancel_radio">
+									<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+								</div>
+								<div class="hm_cancel_reason">
+										1 slice whole wheat toast 
+								</div>
+								<div class="hm_clear"></div>
+							</li>
+							<li>
+									<div class="hm_cancel_radio">
+										<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+									</div>
+									<div class="hm_cancel_reason">
+											1 teaspoon margarine 
+									</div>
+									<div class="hm_clear"></div>
+								</li>
+						</ul>
+					</div>
+					<div class="hm_payment_content" *ngIf="tab=='lunch'">
+							<ul>
+									<li>
+										<div class="hm_cancel_radio">
+											<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+										</div>
+										<div class="hm_cancel_reason">
+												Turkey sandwich (free-veg)
+										</div>
+										<div class="hm_clear"></div>
+									</li>
+									<li>
+										<div class="hm_cancel_radio">
+											<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+										</div>
+										<div class="hm_cancel_reason">
+												1 tablespoon mayonnaise 
+										</div>
+										<div class="hm_clear"></div>
+									</li>
+									<li>
+										<div class="hm_cancel_radio">
+											<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+										</div>
+										<div class="hm_cancel_reason">
+											1/2 cup sugar-free pudding 
+										</div>
+										<div class="hm_clear"></div>
+									</li>
+									<li>
+											<div class="hm_cancel_radio">
+												<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+											</div>
+											<div class="hm_cancel_reason">
+											Artificial sweetener
+											</div>
+											<div class="hm_clear"></div>
+										</li>
+								</ul>
+					</div>
+					<div class="hm_payment_content" *ngIf="tab=='dinner'">
+							<ul>
+									<li>
+										<div class="hm_cancel_radio">
+											<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+										</div>
+										<div class="hm_cancel_reason">
+												3 oz. sliced roast beef 
+										</div>
+										<div class="hm_clear"></div>
+									</li>
+									<li>
+										<div class="hm_cancel_radio">
+											<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+										</div>
+										<div class="hm_cancel_reason">
+												1 teaspoon margarine
+										</div>
+										<div class="hm_clear"></div>
+									</li>
+									<li>
+										<div class="hm_cancel_radio">
+											<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+										</div>
+										<div class="hm_cancel_reason">
+												1/2 cup corn
+										</div>
+										<div class="hm_clear"></div>
+									</li>
+									<li>
+											<div class="hm_cancel_radio">
+												<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+											</div>
+											<div class="hm_cancel_reason">
+													Tossed salad 
+											</div>
+											<div class="hm_clear"></div>
+										</li>
+								</ul>
+					</div>
+				</div>
+
+		<!--
+		<ion-slides pager="false" #mySlider class="hm_testimonial_slider">
+				<ion-slide>
+					<div class="hm_testimonial_top">
+						<div class="hm_testimonial_pic">
+						</div>
+						<div class="hm_testimonial_detail">
+							<h5>Anjali Bhathyar</h5>
+							<p>23-04-2017</p>
+						</div>
+						<div class="hm_clear"></div>
+						<div class="hm_testimoanil_p">
+							“ It is a long established fact that a reader will  be distracted by the readable content of a page when looking at its layout. The point of using Lorem ”
+						</div>
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="hm_testimonial_top">
+						<div class="hm_testimonial_pic">
+						</div>
+						<div class="hm_testimonial_detail">
+							<h5>Roshna Elsa John</h5>
+							<p>06-07-2017</p>
+						</div>
+						<div class="hm_clear"></div>
+						<div class="hm_testimoanil_p">
+							“ It is a long established fact that a reader will  be distracted by the readable content of a page when looking at its layout. The point of using Lorem ”
+						</div>
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="hm_testimonial_top">
+						<div class="hm_testimonial_pic">
+						</div>
+						<div class="hm_testimonial_detail">
+							<h5>Preethi Bhatt</h5>
+							<p>11-11-2017</p>
+						</div>
+						<div class="hm_clear"></div>
+						<div class="hm_testimoanil_p">
+							“ It is a long established fact that a reader will  be distracted by the readable content of a page when looking at its layout. The point of using Lorem ”
+						</div>
+					</div>
+				</ion-slide>
+			</ion-slides>-->
+			
 	</div>
+	<div class="hm_testimonial">
+			
+		</div>
 
 	
 </ion-content>

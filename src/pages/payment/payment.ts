@@ -13,7 +13,7 @@ tab:any;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Payment');
-    this.tab = "active";
+    this.tab = "break";
   }
 
 

@@ -25,6 +25,7 @@ export class Neu {
   labels :any;
   charts : any;
   chartName :any;
+  tab:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
     this.showChart = false;
@@ -53,69 +54,21 @@ export class Neu {
     this.charts = [];
     this.chartName =name;
 
-    if(name=='health'){
+    if(name=='b'){
 
-      this.charts = [{
-        name: "Weight",
-        pro : "weight"
-      },
-      {
-        name: "Blood Pressure",
-        pro : "bld-pre"
-      },
-      {
-        name: "Body Mass Index",
-        pro : "bmi"
-      },
-      {
-        name: "Blood Pressure",
-        pro : "bld-pre"
-      },
-    ]
+      this.tab = "break";
     }
-    else if (name=='disease'){
-      this.charts = [{
-        name: "Cholesterol",
-        pro : "cholesterol"
-      },
-      {
-        name: "Diabetic",
-        pro : "bld-pre"
-      },
-      {
-        name: "Body Mass Index",
-        pro : "bmi"
-      },
-      {
-        name: "Blood Pressure",
-        pro : "bld-pre"
-      },
-    ]
-
+    else if (name=='l'){
+      this.tab = "lunch";
     }
-    else if (name=='medication'){
-      this.charts = [{
-        name: "Appoinments",
-        pro : "appoinments"
-      },
-      {
-        name: "Medication Plan Progress",
-        pro : "medi-plan"
-      },
-      {
-        name: "Body Mass Index",
-        pro : "bmi"
-      },
-      {
-        name: "Blood Pressure",
-        pro : "bld-pre"
-      },
-    ]
-
+    else if (name=='d'){
+      this.tab = "dinner";
     }
 
   }
   ionViewDidLoad() {
+    this.tab = "";
+    
     console.log('ionViewDidLoad Address');
             }
 
@@ -426,7 +379,11 @@ export class Neu {
                 
                        });
             }
-
+            tab_swap(type) {
+              this.tab = type;
+             }
+        
+        
 goBack(){
      this.navCtrl.pop();
    }
