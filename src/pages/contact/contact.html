@@ -1,49 +1,12 @@
 <ion-header class="hm_bg_color hm_header">
   <div class="hm_search_header">
-Profile
+Contacts
   </div>
   <div class="hm_clear"></div>
 </ion-header>
 <ion-content padding class="hm_sign_bg">
-		<div class="row">
-				<div class="hm_myprofile_photo">
-						<img src="assets/img/user.png">
-						<div class="hm_edit_circle">
-							<img src="assets/img/hm_edit_circle.png">
-						</div>
-					</div>
-				<div class="col">
-						<h4>{{user.title}} {{user.firstname}} {{user.lastname}}</h4>
-						<p>{{user.address.street}} {{user.address.city}}</p>
-						<h6>{{user.phones.mobile}}</h6>
-						
-					</div>
-			  </div>
+		
 	<div class="hm_myprofile_wrapper">
-		
-		<div class="hm_myprofile_detail">
-			<div class="hm_myprofile_left">
-				<h6>Blood Type : {{user.bloodtype}}</h6>
-				<h6>Blood Type : {{user.bloodtype}}</h6>
-				
-			</div>
-			<div class="hm_myprofile_right">
-				<div class="hm_edit_circle1" (click)="editprofile()">
-					<img src="assets/img/hm_edit_circle1.png">
-				</div>
-			</div>
-			<div class="hm_clear"></div>
-			<br>
-			<hr>
-			<div class="hm_clear"></div>
-		</div>
-
-		<div class="hm_response">
-			<div class="hm_response_left"><strong>Relations</strong></div>	
-		</div>
-		<hr>
-		<br>
-		
 		<div *ngFor="let u of user.relations" class="hm_response">
 			<div class="hm_response_left"><strong>{{u.first_name}} {{u.last_name}}</strong></div>
 			<div class="hm_response_right">

@@ -48,14 +48,14 @@ import { IonicStorageModule } from '@ionic/storage';
   entryComponents: [
     MyApp ,
     LoginComponent,
+    Home,
     LogoutComponent,
     RegisterComponent,
     ConfirmRegistrationComponent,
     ResendCodeComponent,
     ForgotPasswordStep1Component,
     ForgotPasswordStep2Component,
-    ControlPanelComponent,
-    Home
+    ControlPanelComponent
   ],
   providers: [
     CognitoUtil,

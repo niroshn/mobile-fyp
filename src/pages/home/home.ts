@@ -185,6 +185,9 @@ service(id) {
     else if (id ==8){
         this.navCtrl.push('Intro');
     }
+    else if (id ==9){
+        this.navCtrl.push('Contact');
+    }
 
 }
 
