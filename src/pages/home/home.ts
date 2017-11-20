@@ -182,6 +182,9 @@ service(id) {
     else if (id ==6){
         this.navCtrl.push('Profile');
     }
+    else if (id ==8){
+        this.navCtrl.push('Intro');
+    }
 
 }
 

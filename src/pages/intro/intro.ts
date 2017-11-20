@@ -25,7 +25,7 @@ this.currentIndex = 0;
     }
 
     signin() {
-this.navCtrl.push('Signin');
+this.navCtrl.push('Home');
 }
 
 

@@ -1,31 +1,15 @@
 <ion-content class="hm_intro_bg" >
   <ion-slides class="hm_slider" pager="true" #mySlider>
+   
     <ion-slide>
       <div class="hm_slide">
         <div class="hm_slide_banner">
-          <img src="assets/img/hm_slide1.png">
-        </div>
-        <h4>A to Z Services</h4>
-        <p>Lorem ipsum is a simply dummy text used by<br> the designers </p>
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <div class="hm_slide">
-        <div class="hm_slide_banner">
-          <img src="assets/img/vec.png">
+          <img (click)="emergency()" src="assets/img/vec.png">
         </div>
       
       </div>
     </ion-slide>
-    <ion-slide>
-      <div class="hm_slide">
-        <div class="hm_slide_banner">
-          <img src="assets/img/hm_slide3.png">
-        </div>
-        <h4>Rate your Experience</h4>
-        <p>Lorem ipsum is a simply dummy text used by <br>the designers </p>
-      </div>
-    </ion-slide>
+   
   </ion-slides>
   <div class="hm_slide_btm_bay" [hidden] ="currentIndex == 2">
       <p>Skip</p>

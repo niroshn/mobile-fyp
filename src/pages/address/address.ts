@@ -75,12 +75,32 @@ export class Address {
     }
     else if (name=='disease'){
       this.charts = [{
-        name: "Weight",
-        pro : "weight"
+        name: "Cholesterol",
+        pro : "cholesterol"
+      },
+      {
+        name: "Diabetic",
+        pro : "bld-pre"
+      },
+      {
+        name: "Body Mass Index",
+        pro : "bmi"
       },
       {
         name: "Blood Pressure",
         pro : "bld-pre"
+      },
+    ]
+
+    }
+    else if (name=='medication'){
+      this.charts = [{
+        name: "Appoinments",
+        pro : "appoinments"
+      },
+      {
+        name: "Medication Plan Progress",
+        pro : "medi-plan"
       },
       {
         name: "Body Mass Index",
