@@ -127,7 +127,7 @@ export class Myproject {
       title:'Medication',
       text: 'You have to get Medication at ',
       at:time,
-      sound:'res://assets/alrt.mp3',
+      sound:'file://assets/alrt.mp3',
       data: {mydata:'Information'}
     });
   }
