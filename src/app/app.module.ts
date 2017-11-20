@@ -20,6 +20,7 @@ import {UserLoginService} from "../providers/userLogin.service";
 import {UserParametersService} from "../providers/userParameters.service";
 import {UserRegistrationService} from "../providers/userRegistration.service";
 import {LogoutComponent} from "../pages/auth/logout.component";
+import { IonicStorageModule } from '@ionic/storage';
 
 
 
@@ -41,6 +42,7 @@ import {LogoutComponent} from "../pages/auth/logout.component";
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
