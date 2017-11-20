@@ -1,0 +1,67 @@
+<ion-header class="hm_bg_color hm_header">
+  <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+  <div class="hm_search_header">
+	Analytics
+  </div>
+  <div class="hm_clear"></div>
+</ion-header>
+<ion-content padding>
+		<div class="hm_ad_wrap">
+				<ion-slides pager="false" #mySlider>
+							<ion-slide (click)="recommended()">
+						<img src="assets/img/doc.jpg">
+					</ion-slide>
+					<ion-slide (click)="recommended()">
+						<img src="assets/img/doc.jpg">
+					</ion-slide>
+				</ion-slides>
+				</div>
+		<ion-scroll scrollX="true" style="height:90px;">
+				<div class="hm_response_list">
+					<ul>
+						<li (click)="setChart('health')">
+							<div class="hm_response_photo"></div>
+							<div class="hm_response_details">Breackfast</div>
+							<div class="hm_clear"></div>
+						</li>
+						<li (click)="setChart('disease')"> 
+							<div class="hm_response_photo"></div>
+							<div class="hm_response_details">Lunch</div>
+							<div class="hm_clear"></div>
+						</li>
+						<li (click)="setChart('medication')">
+							<div class="hm_response_photo"></div>
+							<div class="hm_response_details">Dinner</div>
+							<div class="hm_clear"></div>
+						</li>
+						<li>
+							<div class="hm_response_photo"></div>
+							<div class="hm_response_details">Histrory</div>
+							<div class="hm_clear"></div>
+						</li>	
+					</ul>
+				</div>
+			 </ion-scroll>
+	<div class="hm_service_listing" style="padding-top:10px;">
+		<div class="hm_schedule">
+			<ul>
+	
+				<li *ngFor="let u of charts ; let i = index"  (click)="show(i)">{{u.name}}</li>
+	
+			</ul>
+		</div>
+		<ion-card> 
+				<ion-card-header>
+					{{title}}
+				</ion-card-header>
+				<ion-card-content>
+					<canvas #lineCanvas></canvas>
+				</ion-card-content>
+			</ion-card>
+	</div>
+
+	
+</ion-content>
+<ion-footer>
+	
+</ion-footer>

@@ -171,7 +171,7 @@ service(id) {
         this.navCtrl.push('Myproject');
     }
     else if(id==2){
-
+        this.navCtrl.push('Neu');
     }
     else if(id==3){
         this.navCtrl.push('Test');

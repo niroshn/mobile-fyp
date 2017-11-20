@@ -73,8 +73,6 @@
             "cordova-sqlite-storage": {},
             "de.appplant.cordova.plugin.local-notification": {}
         },
-        "platforms": [
-            "android"
-        ]
+        "platforms": []
     }
 }
