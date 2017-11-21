@@ -119,6 +119,9 @@ export class Myproject {
       return false;
     }
   }
+  goBack(){
+    this.navCtrl.pop();
+  }
 //setAlarm(time: Date) {
   setAlarm(time:Date) {
     this.localNotifications.clearAll();

@@ -38,10 +38,12 @@ export class Contact {
         console.log(error);// Error getting the data
       });
 
-      
+    
   }
 
-
+  goBack(){
+    this.navCtrl.pop();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Profile');
   }

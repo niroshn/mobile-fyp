@@ -56,6 +56,9 @@ export class Address {
     else if (this.chartName=="medication"&&index==0){
       this.appoin();
     }
+    else if (this.chartName=="medication"&&index==1){
+      this.mp();
+    }
 
     else if(name=='bp'){
 
@@ -87,7 +90,7 @@ export class Address {
         pro : "bmi"
       },
       {
-        name: "Blood Pressure",
+        name: "Hight",
         pro : "bld-pre"
       },
     ]
@@ -100,15 +103,7 @@ export class Address {
       {
         name: "Diabetic",
         pro : "bld-pre"
-      },
-      {
-        name: "Body Mass Index",
-        pro : "bmi"
-      },
-      {
-        name: "Blood Pressure",
-        pro : "bld-pre"
-      },
+      }
     ]
 
     }
@@ -120,15 +115,7 @@ export class Address {
       {
         name: "Medication Progress",
         pro : "medi-plan"
-      },
-      {
-        name: "Body Mass Index",
-        pro : "bmi"
-      },
-      {
-        name: "Blood Pressure",
-        pro : "bld-pre"
-      },
+      }
     ]
 
     }
@@ -137,8 +124,95 @@ export class Address {
   ionViewDidLoad() {
     console.log('ionViewDidLoad Address');
             }
+            mp(){
+              this.title ="Medication progress";
+              this.userLabel = "Collected Medications";
+              this.idealLabel = "Missed Medications";
+             
+              this.userData = [3, 3, 3, 5, 3, 2, 2];
+              this.idealData =[0, 3, 0, 5, 0, 2, 3];
+              let totalData= [3, 3, 3, 10, 3, 4, 1];
 
+              this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+                
+                
+                           type: 'radar',
+                           data: {
+                               labels: ["11-14", "11-15", "11-16", "11-17", "11-18", "11-19", "11-20"],
+                               datasets: [
+                                   {
+                                       label:this.userLabel,
+                                       fill: false,
+                                       lineTension: 0.1,
+                                       backgroundColor: "rgba(75,192,192,0.4)",
+                                       borderColor: "rgba(75,192,192,1)",
+                                       borderCapStyle: 'butt',
+                                       borderDash: [],
+                                       borderDashOffset: 0.0,
+                                       borderJoinStyle: 'miter',
+                                       pointBorderColor: "rgba(75,192,192,1)",
+                                       pointBackgroundColor: "#fff",
+                                       pointBorderWidth: 1,
+                                       pointHoverRadius: 5,
+                                       pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                       pointHoverBorderColor: "rgba(220,220,220,1)",
+                                       pointHoverBorderWidth: 2,
+                                       pointRadius: 1,
+                                       pointHitRadius: 10,
+                                       data: this.userData,
+                                       spanGaps: false,
+                                   },
+                                   {
+                                    label:this.idealLabel,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: "rgba(153, 102, 255, 0.2)",
+                                    borderColor: "rgba(153, 102, 255, 0.2)",
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: "rgba(153, 102, 255, 0.2)",
+                                    pointBackgroundColor: "#f8f",
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: "rgba(153, 102, 255, 0.2)",
+                                    pointHoverBorderColor: "rgba(153, 102, 255, 0.2)",
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: this.idealData,
+                                    spanGaps: false,
+                                },
+                                {
+                                  label:"Total Medications",
+                                  fill: false,
+                                  lineTension: 0.1,
+                                  backgroundColor: "rgba(153, 102, 255, 0.2)",
+                                  borderColor: "rgba(153, 102, 255, 0.2)",
+                                  borderCapStyle: 'butt',
+                                  borderDash: [],
+                                  borderDashOffset: 0.0,
+                                  borderJoinStyle: 'miter',
+                                  pointBorderColor: "rgba(153, 102, 255, 0.2)",
+                                  pointBackgroundColor: "#f8f",
+                                  pointBorderWidth: 1,
+                                  pointHoverRadius: 5,
+                                  pointHoverBackgroundColor: "rgba(153, 102, 255, 0.2)",
+                                  pointHoverBorderColor: "rgba(153, 102, 255, 0.2)",
+                                  pointHoverBorderWidth: 2,
+                                  pointRadius: 1,
+                                  pointHitRadius: 10,
+                                  data: totalData,
+                                  spanGaps: false,
+                              }
+                               ]
+                           }
+                
+                       });
+            }
             appoin(){
+              this.title ="Number of Appoinments";
               this.barChart = new Chart(this.lineCanvas.nativeElement, {
                 
                            type: 'bar',

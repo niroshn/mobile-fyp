@@ -60,6 +60,9 @@ export class Test {
     console.log('ionViewDidLoad Myproject');
     this.tab = "active";
   }
+  goBack(){
+    this.navCtrl.pop();
+  }
 
   tab_swap(type) {
     this.tab = type;

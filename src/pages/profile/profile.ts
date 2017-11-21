@@ -41,7 +41,9 @@ export class Profile {
       
   }
 
-
+  goBack(){
+    this.navCtrl.pop();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Profile');
   }
