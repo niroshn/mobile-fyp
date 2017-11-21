@@ -35,9 +35,28 @@ export class Address {
   show(index){
     console.log(index);
     
-    if (this.chartName=="health"&&index==1){
+    if (this.chartName=="health"&&index==0){
+      this.weight();
+    }
+    else  if (this.chartName=="health"&&index==1){
+      this.pre();
+    }
+    else if (this.chartName=="health"&&index==2){
       this.bmi();
     }
+    else if (this.chartName=="health"&&index==3){
+      this.hight();
+    }
+    else if (this.chartName=="disease"&&index==0){
+      this.cholesterol();
+    }
+    else if (this.chartName=="disease"&&index==1){
+      this.sugerlevel();
+    }
+    else if (this.chartName=="medication"&&index==0){
+      this.appoin();
+    }
+
     else if(name=='bp'){
 
     }
@@ -99,7 +118,7 @@ export class Address {
         pro : "appoinments"
       },
       {
-        name: "Medication Plan Progress",
+        name: "Medication Progress",
         pro : "medi-plan"
       },
       {
@@ -119,6 +138,46 @@ export class Address {
     console.log('ionViewDidLoad Address');
             }
 
+            appoin(){
+              this.barChart = new Chart(this.lineCanvas.nativeElement, {
+                
+                           type: 'bar',
+                           data: {
+                               labels: ["2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11"],
+                               datasets: [{
+                                   label: 'Numer of Appoiments',
+                                   data: [2, 0, 1, 4, 0, 3],
+                                   backgroundColor: [
+                                       'rgba(255, 99, 132, 0.2)',
+                                       'rgba(255, 99, 132, 0.2)',
+                                       'rgba(255, 99, 132, 0.2)',
+                                       'rgba(255, 99, 132, 0.2)',
+                                       'rgba(255, 99, 132, 0.2)',
+                                       'rgba(255, 99, 132, 0.2)'
+                                   ],
+                                   borderColor: [
+                                       'rgba(255,99,132,1)',
+                                       'rgba(54, 162, 235, 1)',
+                                       'rgba(255, 206, 86, 1)',
+                                       'rgba(75, 192, 192, 1)',
+                                       'rgba(153, 102, 255, 1)',
+                                       'rgba(255, 159, 64, 1)'
+                                   ],
+                                   borderWidth: 1
+                               }]
+                           },
+                           options: {
+                               scales: {
+                                   yAxes: [{
+                                       ticks: {
+                                           beginAtZero:true
+                                       }
+                                   }]
+                               }
+                           }
+                
+                       });
+            }
             bmi(){
               this.title ="Body Mass Index (BMI)";
               this.userLabel = "Your BMI";
@@ -177,6 +236,194 @@ export class Address {
                                     data: this.idealData,
                                     spanGaps: false,
                                 }
+                               ]
+                           }
+                
+                       });
+            }
+
+            sugerlevel(){
+              this.title ="Sugar Level mmol/L";
+              this.userLabel = "Sugar Level varation";
+              this.idealLabel = "Dangerous Level";
+              this.userData = [138.9, 139, 141, 143, 140, 139.9, 138.8];
+              this.idealData =[140, 140, 140, 140, 140, 140, 140];
+
+              this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+                
+                
+                           type: 'line',
+                           data: {
+                               labels: ["January", "February", "March", "April", "May", "June", "July"],
+                               datasets: [
+                                   {
+                                       label: this.userLabel,
+                                       fill: false,
+                                       lineTension: 0.1,
+                                       backgroundColor: "rgba(75,192,192,0.4)",
+                                       borderColor: "rgba(75,192,192,1)",
+                                       borderCapStyle: 'butt',
+                                       borderDash: [],
+                                       borderDashOffset: 0.0,
+                                       borderJoinStyle: 'miter',
+                                       pointBorderColor: "rgba(75,192,192,1)",
+                                       pointBackgroundColor: "#fff",
+                                       pointBorderWidth: 1,
+                                       pointHoverRadius: 5,
+                                       pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                       pointHoverBorderColor: "rgba(220,220,220,1)",
+                                       pointHoverBorderWidth: 2,
+                                       pointRadius: 1,
+                                       pointHitRadius: 10,
+                                       data: this.userData,
+                                       spanGaps: false,
+                                   },
+                                   {
+                                    label: this.idealLabel,
+                                    fill: false,
+                                    lineTension: 0.1,
+                                    backgroundColor: "rgba(153, 102, 255, 0.2)",
+                                    borderColor: "rgba(153, 102, 255, 0.2)",
+                                    borderCapStyle: 'butt',
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    borderJoinStyle: 'miter',
+                                    pointBorderColor: "rgba(153, 102, 255, 0.2)",
+                                    pointBackgroundColor: "#f8f",
+                                    pointBorderWidth: 1,
+                                    pointHoverRadius: 5,
+                                    pointHoverBackgroundColor: "rgba(153, 102, 255, 0.2)",
+                                    pointHoverBorderColor: "rgba(153, 102, 255, 0.2)",
+                                    pointHoverBorderWidth: 2,
+                                    pointRadius: 1,
+                                    pointHitRadius: 10,
+                                    data: this.idealData,
+                                    spanGaps: false,
+                                }
+                               ]
+                           }
+                
+                       });
+            }
+            hight(){
+              this.title ="Hight (cm)";
+              this.userLabel = "Hight";
+              
+              this.userData = [169, 169, 169, 169, 169, 169, 169];
+            
+
+              this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+                
+                
+                           type: 'line',
+                           data: {
+                               labels: ["2017-014-20", "2017-05-20", "2017-07-28", "2017-07-20", "2017-08-20", "2017-09-20", "2017-10-20"],
+                               datasets: [
+                                   {
+                                       label: this.userLabel,
+                                       fill: false,
+                                       lineTension: 0.1,
+                                       backgroundColor: "rgba(75,192,192,0.4)",
+                                       borderColor: "rgba(75,192,192,1)",
+                                       borderCapStyle: 'butt',
+                                       borderDash: [],
+                                       borderDashOffset: 0.0,
+                                       borderJoinStyle: 'miter',
+                                       pointBorderColor: "rgba(75,192,192,1)",
+                                       pointBackgroundColor: "#fff",
+                                       pointBorderWidth: 1,
+                                       pointHoverRadius: 5,
+                                       pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                       pointHoverBorderColor: "rgba(220,220,220,1)",
+                                       pointHoverBorderWidth: 2,
+                                       pointRadius: 1,
+                                       pointHitRadius: 10,
+                                       data: this.userData,
+                                       spanGaps: false,
+                                   }
+                               ]
+                           }
+                
+                       });
+            }
+
+            weight(){
+              this.title ="Weight";
+              this.userLabel = "Weight Variation";
+              
+              this.userData = [65, 67, 67, 67, 68, 67.5, 68];
+            
+
+              this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+                
+                
+                           type: 'line',
+                           data: {
+                               labels: ["2017-014-20", "2017-05-20", "2017-07-28", "2017-07-20", "2017-08-20", "2017-09-20", "2017-10-20"],
+                               datasets: [
+                                   {
+                                       label: this.userLabel,
+                                       fill: false,
+                                       lineTension: 0.1,
+                                       backgroundColor: "rgba(75,192,192,0.4)",
+                                       borderColor: "rgba(75,192,192,1)",
+                                       borderCapStyle: 'butt',
+                                       borderDash: [],
+                                       borderDashOffset: 0.0,
+                                       borderJoinStyle: 'miter',
+                                       pointBorderColor: "rgba(75,192,192,1)",
+                                       pointBackgroundColor: "#fff",
+                                       pointBorderWidth: 1,
+                                       pointHoverRadius: 5,
+                                       pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                       pointHoverBorderColor: "rgba(220,220,220,1)",
+                                       pointHoverBorderWidth: 2,
+                                       pointRadius: 1,
+                                       pointHitRadius: 10,
+                                       data: this.userData,
+                                       spanGaps: false,
+                                   }
+                               ]
+                           }
+                
+                       });
+            }
+            pre(){
+              this.title ="Blood  Pressure ";
+              this.userLabel = "Blood Pressure Variation (Hg/mm)";
+              
+              this.userData = [165.90, 167, 167, 167, 168, 167.5, 168.89];
+            
+
+              this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+                
+                
+                           type: 'line',
+                           data: {
+                               labels: ["2017-014-20", "2017-05-20", "2017-07-28", "2017-07-20", "2017-08-20", "2017-09-20", "2017-10-20"],
+                               datasets: [
+                                   {
+                                       label: this.userLabel,
+                                       fill: false,
+                                       lineTension: 0.1,
+                                       backgroundColor: "rgba(75,192,192,0.4)",
+                                       borderColor: "rgba(75,192,192,1)",
+                                       borderCapStyle: 'butt',
+                                       borderDash: [],
+                                       borderDashOffset: 0.0,
+                                       borderJoinStyle: 'miter',
+                                       pointBorderColor: "rgba(75,192,192,1)",
+                                       pointBackgroundColor: "#fff",
+                                       pointBorderWidth: 1,
+                                       pointHoverRadius: 5,
+                                       pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                       pointHoverBorderColor: "rgba(220,220,220,1)",
+                                       pointHoverBorderWidth: 2,
+                                       pointRadius: 1,
+                                       pointHitRadius: 10,
+                                       data: this.userData,
+                                       spanGaps: false,
+                                   }
                                ]
                            }
                 
