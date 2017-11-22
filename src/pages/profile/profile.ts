@@ -71,5 +71,10 @@ export class Profile {
     modal.present();
   }
 
+  logout(){
+    this.storage.clear();
+    this.navCtrl.push('Login');
+  }
+
 
 }
