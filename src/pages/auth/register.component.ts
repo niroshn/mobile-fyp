@@ -45,10 +45,13 @@ export class RegisterComponent implements CognitoCallback {
             this.doAlert("Registration", message);
         } else { //success
             console.log("in callback...result: " + result);
+            var details= this.registrationUser;
             //do api call add new user
-            let massage={"user_id":result.user.email}
-            this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/users/AddUser", massage)
+            let massage={"user_id":details["email"],"firstname":details["firstname"],"lastname":details["lastname"]}
+            this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/users/addNewUser", massage)
             .subscribe(data => {
+                console.log("responses");
+                console.log(data);
              
             }, error => {
               console.log(error);// Error getting the data
