@@ -1,45 +1,98 @@
 <ion-header class="hm_bg_color hm_header">
-		<button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
-  <div class="hm_search_header">
-Profile
-  </div>
-  <div class="hm_clear"></div>
+	<button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+	<div class="hm_search_header">
+		Profile
+	</div>
+	<div class="hm_clear"></div>
 </ion-header>
 <ion-content padding class="hm_sign_bg">
-		<div class="row">
-				<div class="hm_myprofile_photo">
-						<img src="assets/img/user.png">
-						<div class="hm_edit_circle">
-							<img src="assets/img/hm_edit_circle.png">
-						</div>
-					</div>
-				<div class="col">
-						<h4>{{user.title}} {{user.firstname}} {{user.lastname}}</h4>
-						<p>{{user.address.street}} {{user.address.city}}</p>
-						<h6>{{user.phones.mobile}}</h6>
-						
-					</div>
-					<div class="hm_response_right">
-							<ion-chip (click)="logout()" color="secondary">
-									<ion-label>Log Out</ion-label>
-							</ion-chip>
-					</div>
-			  </div>
-	<div class="hm_myprofile_wrapper">
-		
+	<div class="row">
+		<div class="hm_myprofile_photo">
+			<img src="assets/img/user.png">
+			<div class="hm_edit_circle">
+				<img src="assets/img/hm_edit_circle.png">
+			</div>
+		</div>
+		<div class="col">
+			<h4>{{user.title}} {{user.firstname}} {{user.lastname}}</h4>
+			<p>{{user.address.street}} {{user.address.city}}</p>
+			<h6>{{user.phones.mobile}}</h6>
+
+		</div>
+		<div class="hm_response_right">
+			<ion-chip (click)="logout()" color="secondary">
+				<ion-label>Log Out</ion-label>
+			</ion-chip>
+		</div>
+	</div>
+
+	<ion-content transparent>
+		<ion-list no-border transparent>
+			<ion-item>
+				<ion-icon name='planet' item-start></ion-icon>
+				Blood Type
+				<ion-note item-end>
+					{{user.bloodtype}}
+				</ion-note>
+			</ion-item>
+			<ion-item>
+				<ion-icon name='planet' item-start></ion-icon>
+				maritalstatus
+				<ion-note item-end>
+					Married
+				</ion-note>
+			</ion-item>
+			<ion-item>
+				<ion-icon name='planet' item-start></ion-icon>
+				Gender
+				<ion-note item-end>
+					{{user.gender}}
+				</ion-note>
+			</ion-item>
+			<ion-item>
+				<ion-icon name='planet' item-start></ion-icon>
+				Birth Day
+				<ion-note item-end>
+					{{user.birthdate}}
+				</ion-note>
+			</ion-item>
+			<ion-item>
+				<ion-icon name='planet' item-start></ion-icon>
+				Alcoholic
+				<ion-note item-end>
+					{{user.alcoholic}}
+				</ion-note>
+			</ion-item>
+			<ion-item>
+				<ion-icon name='planet' item-start></ion-icon>
+				NIC
+				<ion-note item-end>
+					{{user.nic}}
+				</ion-note>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+
+	<!-- <div class="hm_myprofile_wrapper">
+
 		<div class="hm_myprofile_detail">
 			<div class="hm_myprofile_left">
-				<h6>Blood Type : {{user.bloodtype}}</h6>
+				<h6>Blood Type :</h6>
+				<h6 item-end>{{user.bloodtype}}</h6>
 				<h6>maritalstatus : Married</h6>
+				<h6>Gender:{{user.gender}}</h6>
+				<h6>Birth Day:{{user.birthdate}}</h6>
+				<h6>Alcoholic:{{user.alcoholic}}</h6>
+				<h6>NIC: {{user.nic}}</h6>
 			</div>
-			
-		</div>
-		
-		
-	</div>
+
+		</div> -->
+
+
+	<!-- </div> -->
 
 
 </ion-content>
 <ion-footer>
-<tabcomponent></tabcomponent>
+	<tabcomponent></tabcomponent>
 </ion-footer>
