@@ -5,6 +5,7 @@ import {AlertController, NavController} from "ionic-angular";
 import {ConfirmRegistrationComponent} from "./confirmRegistration.component";
 import {ResendCodeComponent} from "./resendCode.component";
 import {LoginComponent} from "./login.component";
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 /**
  * This component is responsible for displaying and controlling
@@ -20,7 +21,7 @@ export class RegisterComponent implements CognitoCallback {
 
     constructor(public nav: NavController,
                 public userRegistration: UserRegistrationService,
-                public alertCtrl: AlertController) {
+                public alertCtrl: AlertController,public http: Http) {
         this.registrationUser = new RegistrationUser();
     }
 
@@ -44,6 +45,16 @@ export class RegisterComponent implements CognitoCallback {
             this.doAlert("Registration", message);
         } else { //success
             console.log("in callback...result: " + result);
+            //do api call add new user
+            let massage={"user_id":result.user.email}
+            this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/users/AddUser", massage)
+            .subscribe(data => {
+             
+            }, error => {
+              console.log(error);// Error getting the data
+            });
+      
+            //end here
             this.nav.push(ConfirmRegistrationComponent, {
                 'username': result.user.username,
                 'email': this.registrationUser.email

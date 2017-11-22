@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController,LoadingController, NavParams, ModalController,AlertController,Platform } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, NavParams, ModalController, AlertController, Platform } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Calendar } from '@ionic-native/calendar';
 import { AlarmNotifications } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 @IonicPage()
 @Component({
@@ -16,19 +17,40 @@ export class Myproject {
   medications: any;
   user_params: any;
   Storage: Storage;
-  nextMedications : any;
-  constructor(public navCtrl: NavController,public loadingCtrl: LoadingController,public alertCtrl:AlertController,private plt:Platform, private localNotifications: LocalNotifications, private storage: Storage, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
-    this.plt.ready().then((rdy)=>{
-      this.localNotifications.on('click',(notification,state)=>{
-        let json=JSON.parse(notification.data);
-        let alert=this.alertCtrl.create({
-          title:notification.title,
-          subTitle:json.mydata
+  nextMedications: any;
+  relations: any;
+
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public alertCtrl: AlertController, private plt: Platform, private localNotifications: LocalNotifications, private storage: Storage, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
+    this.plt.ready().then((rdy) => {
+      this.localNotifications.on('click', (notification, state) => {
+        let json = JSON.parse(notification.data);
+        let alert = this.alertCtrl.create({
+          title: notification.title,
+          subTitle: json.mydata
         });
         alert.present();
       });
     });
     this.storage = storage;
+    this.storage.get('user').then((val) => {
+      console.log('Your age is', val);
+      if (val) {
+        //console.log(val);
+        //this.user = val;
+        var email = val['email'];
+        console.log(email);
+        this.user_params = {
+          "user_id": email
+        }
+        //here
+        loading.dismiss();
+      }
+      else {
+
+      }
+
+    });
+    ////**** */
     this.user_params = {
       "user_id": "nuwan@gmail.com"
     }
@@ -36,7 +58,7 @@ export class Myproject {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
-  
+
     loading.present();
     this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/medication/getMedicationPlan", this.user_params)
       .subscribe(data => {
@@ -50,9 +72,23 @@ export class Myproject {
         console.log(error);// Error getting the data
       });
 
-      //let d=this.getNowDate("19:30:00");
-      //this.setAlarm(d);
-      //console.log(new Date(new Date().getTime() + 5 * 1000));
+      this.storage.get('user').then((val) => {
+        if (val) {
+          console.log(val);
+          this.relations = val["relations"];
+          //here
+          console.log("here");
+          console.log(this.relations);
+        }
+        else {
+  
+        }
+  
+      });
+
+    //let d=this.getNowDate("19:30:00");
+    //this.setAlarm(d);
+    //console.log(new Date(new Date().getTime() + 5 * 1000));
   }
 
   ionViewDidLoad() {
@@ -83,17 +119,17 @@ export class Myproject {
         console.log(med);
         isSet = 1;
         output = med;
-        nextAlarmTime=tempDate;
+        nextAlarmTime = tempDate;
         break;
       }
     }
     if (isSet == 0) {
       output = AllMedications[0];
-      var medOne=AllMedications[0];
-      nextAlarmTime=this.getNowDate(medOne['time']);
+      var medOne = AllMedications[0];
+      nextAlarmTime = this.getNowDate(medOne['time']);
     }
     this.setAlarm(nextAlarmTime);
-    this.nextMedications= output.medications;
+    this.nextMedications = output.medications;
     console.log(this.nextMedications);
     return output;
   }
@@ -119,33 +155,52 @@ export class Myproject {
       return false;
     }
   }
-  goBack(){
+  goBack() {
     this.navCtrl.pop();
   }
-//setAlarm(time: Date) {
-  setAlarm(time:Date) {
+  //setAlarm(time: Date) {
+  setAlarm(time: Date) {
     this.localNotifications.clearAll();
     this.localNotifications.schedule({
-      id:1,
-      title:'Medication',
+      id: 1,
+      title: 'Medication',
       text: 'You have to get Medication at ',
-      at:time,
-      sound:'file://assets/alrt.mp3',
-      data: {mydata:'Information'}
+      at: time,
+      sound: 'file://assets/alrt.mp3',
+      data: { mydata: 'Information' }
     });
   }
 
   viewMedicationDetails(medicalInfo) {
     console.log("dnd");
-    let modal = this.modalCtrl.create('Addpopup',medicalInfo);
+    let modal = this.modalCtrl.create('Addpopup', medicalInfo);
     modal.present();
 
 
+  }
+
+  viewUpcommingMedications(info) {
+    let modal = this.modalCtrl.create('Projectlist', info);
+    modal.present();
+  }
+
+  contact() {
+    let msg="Patient had the medication just before :-)";
+    let relations = this.relations;
+    //console.log(relations);
+    for (let l of relations) {
+      let massage = {
+        "tel": l.tel,
+        "sms": msg
+      }
+      this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/notifications/notifications", massage)
+        .subscribe(data => {
+
+
+        }, error => {
+          console.log(error);// Error getting the data
+        });
     }
-
-   viewUpcommingMedications(info){
-    let modal = this.modalCtrl.create('Projectlist',info);
-    modal.present();
-   } 
+  }
 
 }
