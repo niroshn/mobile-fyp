@@ -54,7 +54,7 @@ export class Myproject {
     });
     ////**** */
     this.user_params = {
-      "user_id": this.userID
+      "user_id": "596731c49acb4731dcc9bf25"
     }
     //let c_time = new Time();
     let loading = this.loadingCtrl.create({
@@ -65,10 +65,11 @@ export class Myproject {
     this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/medication/getMedicationPlan", this.user_params)
       .subscribe(data => {
         console.log(data);
-        //this.medications = data.json().data[0].day_plan;
-        
+
+        this.medications = data.json().data[0].day_plan;
+        console.log(this.medications);
         this.getNextMedication(this.medications);
-        console.log('nothing');
+        console.log('nothisg');
         loading.dismiss();
       }, error => {
         console.log(error);// Error getting the data
