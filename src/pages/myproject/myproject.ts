@@ -54,7 +54,14 @@ export class Myproject {
           .subscribe(data => {
             console.log(data);
     
-            this.medications = data.json().data[0].day_plan;
+            
+
+            if(data.json().data[0].day_plan){
+              this.medications = data.json().data[0].day_plan;
+            }
+            else{
+              this.medications = [];
+            }
             console.log(this.medications);
             this.getNextMedication(this.medications);
             console.log('nothisg');

@@ -25,7 +25,7 @@ export class Intro {
       console.log(val);
       if (val) {
         this.currentUser = val;
-        this.msg = this.currentUser.title + " " + this.currentUser.firstname + "  is in Emergency Situation. Lets' Contact now";
+        this.msg =  "  Patient is in Emergency Situation. Lets' Contact now";
         console.log(this.msg);
       }
       else {
