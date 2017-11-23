@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController,PopoverController, NavParams } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -12,13 +13,31 @@ export class Feedback {
     address : any;
     user_params: any;
     massage : any;
+    phone:any;
+    user:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public popoverCtrl: PopoverController,public http: Http) {
+  constructor(public navCtrl: NavController, private storage: Storage,public navParams: NavParams,public popoverCtrl: PopoverController,public http: Http) {
     this.name = navParams.get('first_name')+" "+navParams.get('last_name') ;
     this.address  = navParams.get('address') ;
+    this.phone=navParams.get('tel');
+    console.log(this.phone);
     this.user_params = {
       "user_id": "nuwan@gmail.com"
     }
+
+    // this.storage.get('user').then((val) => {
+    //   console.log('Your age is', val);
+    //   if(val){
+    //     console.log(val);
+    //     this.user = val;
+    //     //here
+    //     this.phone=val[""]
+    //   }
+    //   else{
+        
+    //   }
+      
+    // });
     
   }
 
@@ -35,9 +54,10 @@ export class Feedback {
      this.navCtrl.pop();
    }
    sendmassage(){
+
      let msg = "Your Mom Says : "+ this.massage;
     let massage = {  
-      "tel":"94772080907",
+      "tel":this.phone,
       "sms":msg
    
    }

@@ -19,6 +19,7 @@ export class Myproject {
   Storage: Storage;
   nextMedications: any;
   relations: any;
+  userID:any;
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public alertCtrl: AlertController, private plt: Platform, private localNotifications: LocalNotifications, private storage: Storage, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
     this.plt.ready().then((rdy) => {
@@ -37,10 +38,11 @@ export class Myproject {
       if (val) {
         //console.log(val);
         //this.user = val;
+        this.userID=val['_id'];
         var email = val['email'];
         console.log(email);
         this.user_params = {
-          "user_id": email
+          "user_id": this.userID
         }
         //here
         loading.dismiss();
@@ -52,7 +54,7 @@ export class Myproject {
     });
     ////**** */
     this.user_params = {
-      "user_id": "nuwan@gmail.com"
+      "user_id": this.userID
     }
     //let c_time = new Time();
     let loading = this.loadingCtrl.create({
@@ -62,11 +64,11 @@ export class Myproject {
     loading.present();
     this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/medication/getMedicationPlan", this.user_params)
       .subscribe(data => {
-
-        this.medications = data.json().data[0].day_plan;
-        console.log(this.medications);
+        console.log(data);
+        //this.medications = data.json().data[0].day_plan;
+        
         this.getNextMedication(this.medications);
-        console.log('nothisg');
+        console.log('nothing');
         loading.dismiss();
       }, error => {
         console.log(error);// Error getting the data

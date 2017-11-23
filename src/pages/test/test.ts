@@ -17,6 +17,9 @@ export class Test {
   user_params: any;
   Storage: Storage;
   nextMedications : any;
+  userID:any;
+
+
   constructor(public navCtrl: NavController,public loadingCtrl: LoadingController, public alertCtrl:AlertController,private plt:Platform, private localNotifications: LocalNotifications, private storage: Storage, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
     this.plt.ready().then((rdy)=>{
       this.localNotifications.on('click',(notification,state)=>{
@@ -29,8 +32,29 @@ export class Test {
       });
     });
     this.storage = storage;
+    this.storage.get('user').then((val) => {
+      console.log('Your age is', val);
+      if (val) {
+        //console.log(val);
+        //this.user = val;
+        this.userID=val['_id'];
+        // var email = val['email'];
+        // console.log(email);
+        this.user_params = {
+          "user_id": this.userID
+        }
+        //here
+        loading.dismiss();
+      }
+      else {
+
+      }
+
+    });
+
+
     this.user_params = {
-      "user_id": "nuwan@gmail.com"
+      "user_id": this.userID
     }
     //let c_time = new Time();
     let loading = this.loadingCtrl.create({
