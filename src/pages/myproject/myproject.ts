@@ -54,7 +54,7 @@ export class Myproject {
     });
     ////**** */
     this.user_params = {
-      "user_id": "596731c49acb4731dcc9bf25"
+      "user_id": this.userID
     }
     //let c_time = new Time();
     let loading = this.loadingCtrl.create({
