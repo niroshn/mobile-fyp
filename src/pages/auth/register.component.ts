@@ -18,11 +18,17 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 })
 export class RegisterComponent implements CognitoCallback {
     registrationUser: RegistrationUser;
+    user:any;
 
     constructor(public nav: NavController,
                 public userRegistration: UserRegistrationService,
                 public alertCtrl: AlertController,public http: Http) {
         this.registrationUser = new RegistrationUser();
+        
+       
+
+
+
     }
 
     ionViewLoaded() {
@@ -30,7 +36,18 @@ export class RegisterComponent implements CognitoCallback {
     }
 
     onRegister() {
+        console.log(this.registrationUser);
         this.userRegistration.register(this.registrationUser, this);
+        let massage={"user_id":this.registrationUser.email,"firstname":this.registrationUser.firstname,"lastname":this.registrationUser.lastname}
+        this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/users/addNewUser", massage)
+        .subscribe(data => {
+            console.log("responses");
+            console.log(data);
+         
+        }, error => {
+          console.log(error);// Error getting the data
+        });
+  
     }
 
     /**
@@ -47,16 +64,7 @@ export class RegisterComponent implements CognitoCallback {
             console.log("in callback...result: " + result);
             var details= this.registrationUser;
             //do api call add new user
-            let massage={"user_id":details["email"],"firstname":details["firstname"],"lastname":details["lastname"]}
-            this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/users/addNewUser", massage)
-            .subscribe(data => {
-                console.log("responses");
-                console.log(data);
-             
-            }, error => {
-              console.log(error);// Error getting the data
-            });
-      
+            
             //end here
             this.nav.push(ConfirmRegistrationComponent, {
                 'username': result.user.username,

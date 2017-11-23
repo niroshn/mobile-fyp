@@ -52,7 +52,7 @@ export class LoginComponent implements CognitoCallback, LoggedInCallback {
         } else { //success
             console.log("Redirect to ControlPanelComponent");
             this.user_params = {
-                "user_id": "nuwan@gmail.com"
+                "user_id": this.email
               }
           
               this.user = { "_id": "59a3ba9d734d1d7ab9ead016", "user_id": "nuwan@gmail.com", "nic": "920123223V", "title": "Mr.", "firstname": "Vindula", "lastname": "Fernando", "birthdate": "1992-01-24", "gender": "Male", "maritalstatus": "Single", "bloodtype": "A+", "alcoholic": true, "phones": { "home": "+94112826896", "mobile": "+94776711781" }, "email": "dinukav.fernando@gmail.com", "address": { "street": "Anderson Road", "city": "Colombo 01", "country": "Sri Lanka" }, "avatar": "no-avatar.jpg", "relations": [{ "first_name": "nushan", "last_name": "Bandra", "address": "No 89/9 Mihin Road Colombo 3", "tel": "+94772080907", "relation": "Brother" }, { "first_name": "shan", "last_name": "Bandra", "address": "No 89/9 Mihin Road Colombo 3", "tel": "+94772080907", "relation": "Brother" }, { "first_name": "nun", "last_name": "Bandra", "address": "No 89/9 Mihin Road Colombo 3", "tel": "+94772080907", "relation": "Father" }, { "first_name": "nushani", "last_name": "Bond", "address": "No 89/9 Mihin Road Colombo 3", "tel": "+94772080909", "relation": "Sister" }, { "first_name": "nushani", "last_name": "Bond", "address": "No 89/9 Mihin Road Colombo 3", "tel": "+94772080909", "relation": "Sister" }] };

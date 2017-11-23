@@ -38,14 +38,46 @@ export class Myproject {
       if (val) {
         //console.log(val);
         //this.user = val;
-        this.userID=val['_id'];
+        this.userID=val._id;
         var email = val['email'];
-        console.log(email);
+        console.log(val._id);
         this.user_params = {
-          "user_id": this.userID
+          "user_id": val._id
         }
         //here
-        loading.dismiss();
+        let loading = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+    
+        loading.present();
+        this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/medication/getMedicationPlan", this.user_params)
+          .subscribe(data => {
+            console.log(data);
+    
+            this.medications = data.json().data[0].day_plan;
+            console.log(this.medications);
+            this.getNextMedication(this.medications);
+            console.log('nothisg');
+            loading.dismiss();
+          }, error => {
+            console.log(error);// Error getting the data
+          });
+    
+          this.storage.get('user').then((val) => {
+            if (val) {
+              console.log(val);
+              this.relations = val["relations"];
+              //here
+              console.log("here");
+              console.log(this.relations);
+            }
+            else {
+      
+            }
+      
+          });
+    
+        
       }
       else {
 
@@ -54,41 +86,10 @@ export class Myproject {
     });
     ////**** */
     this.user_params = {
-      "user_id": this.userID
+      "user_id": "5a1662f75220cd000109c096"
     }
     //let c_time = new Time();
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-
-    loading.present();
-    this.http.post("https://r0wl6iaxea.execute-api.us-east-1.amazonaws.com/dev/medication/getMedicationPlan", this.user_params)
-      .subscribe(data => {
-        console.log(data);
-
-        this.medications = data.json().data[0].day_plan;
-        console.log(this.medications);
-        this.getNextMedication(this.medications);
-        console.log('nothisg');
-        loading.dismiss();
-      }, error => {
-        console.log(error);// Error getting the data
-      });
-
-      this.storage.get('user').then((val) => {
-        if (val) {
-          console.log(val);
-          this.relations = val["relations"];
-          //here
-          console.log("here");
-          console.log(this.relations);
-        }
-        else {
-  
-        }
-  
-      });
-
+   
     //let d=this.getNowDate("19:30:00");
     //this.setAlarm(d);
     //console.log(new Date(new Date().getTime() + 5 * 1000));
